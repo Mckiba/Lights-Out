@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B1BFB20286E17F000EDF965 /* Wishing_WellApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB1F286E17F000EDF965 /* Wishing_WellApp.swift */; };
+		1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB21286E17F000EDF965 /* ContentView.swift */; };
+		1B1BFB24286E17F200EDF965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB23286E17F200EDF965 /* Assets.xcassets */; };
+		1B1BFB27286E17F200EDF965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */; };
+		1B1BFB29286E17F200EDF965 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB28286E17F200EDF965 /* Persistence.swift */; };
+		1B1BFB2C286E17F200EDF965 /* Wishing_Well.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB2A286E17F200EDF965 /* Wishing_Well.xcdatamodeld */; };
+		1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB35286E17F200EDF965 /* Wishing_WellTests.swift */; };
+		1B1BFB40286E17F200EDF965 /* Wishing_WellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */; };
+		1B1BFB42286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1B1BFB32286E17F200EDF965 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B1BFB14286E17F000EDF965 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B1BFB1B286E17F000EDF965;
+			remoteInfo = "Wishing-Well";
+		};
+		1B1BFB3C286E17F200EDF965 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B1BFB14286E17F000EDF965 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B1BFB1B286E17F000EDF965;
+			remoteInfo = "Wishing-Well";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1B1BFB1C286E17F000EDF965 /* Wishing-Well.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wishing-Well.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B1BFB1F286E17F000EDF965 /* Wishing_WellApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellApp.swift; sourceTree = "<group>"; };
+		1B1BFB21286E17F000EDF965 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1B1BFB23286E17F200EDF965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1B1BFB28286E17F200EDF965 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1B1BFB2B286E17F200EDF965 /* Wishing_Well.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wishing_Well.xcdatamodel; sourceTree = "<group>"; };
+		1B1BFB31286E17F200EDF965 /* Wishing-WellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wishing-WellTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B1BFB35286E17F200EDF965 /* Wishing_WellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellTests.swift; sourceTree = "<group>"; };
+		1B1BFB3B286E17F200EDF965 /* Wishing-WellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wishing-WellUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellUITests.swift; sourceTree = "<group>"; };
+		1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1B1BFB19286E17F000EDF965 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B1BFB2E286E17F200EDF965 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B1BFB38286E17F200EDF965 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B1BFB13286E17F000EDF965 = {
+			isa = PBXGroup;
+			children = (
+				1B1BFB1E286E17F000EDF965 /* Wishing-Well */,
+				1B1BFB34286E17F200EDF965 /* Wishing-WellTests */,
+				1B1BFB3E286E17F200EDF965 /* Wishing-WellUITests */,
+				1B1BFB1D286E17F000EDF965 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1B1BFB1D286E17F000EDF965 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B1BFB1C286E17F000EDF965 /* Wishing-Well.app */,
+				1B1BFB31286E17F200EDF965 /* Wishing-WellTests.xctest */,
+				1B1BFB3B286E17F200EDF965 /* Wishing-WellUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B1BFB1E286E17F000EDF965 /* Wishing-Well */ = {
+			isa = PBXGroup;
+			children = (
+				1B1BFB1F286E17F000EDF965 /* Wishing_WellApp.swift */,
+				1B1BFB21286E17F000EDF965 /* ContentView.swift */,
+				1B1BFB23286E17F200EDF965 /* Assets.xcassets */,
+				1B1BFB28286E17F200EDF965 /* Persistence.swift */,
+				1B1BFB2A286E17F200EDF965 /* Wishing_Well.xcdatamodeld */,
+				1B1BFB25286E17F200EDF965 /* Preview Content */,
+			);
+			path = "Wishing-Well";
+			sourceTree = "<group>";
+		};
+		1B1BFB25286E17F200EDF965 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1B1BFB34286E17F200EDF965 /* Wishing-WellTests */ = {
+			isa = PBXGroup;
+			children = (
+				1B1BFB35286E17F200EDF965 /* Wishing_WellTests.swift */,
+			);
+			path = "Wishing-WellTests";
+			sourceTree = "<group>";
+		};
+		1B1BFB3E286E17F200EDF965 /* Wishing-WellUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */,
+				1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */,
+			);
+			path = "Wishing-WellUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1B1BFB1B286E17F000EDF965 /* Wishing-Well */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B1BFB45286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-Well" */;
+			buildPhases = (
+				1B1BFB18286E17F000EDF965 /* Sources */,
+				1B1BFB19286E17F000EDF965 /* Frameworks */,
+				1B1BFB1A286E17F000EDF965 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wishing-Well";
+			productName = "Wishing-Well";
+			productReference = 1B1BFB1C286E17F000EDF965 /* Wishing-Well.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1B1BFB30286E17F200EDF965 /* Wishing-WellTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B1BFB48286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-WellTests" */;
+			buildPhases = (
+				1B1BFB2D286E17F200EDF965 /* Sources */,
+				1B1BFB2E286E17F200EDF965 /* Frameworks */,
+				1B1BFB2F286E17F200EDF965 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1B1BFB33286E17F200EDF965 /* PBXTargetDependency */,
+			);
+			name = "Wishing-WellTests";
+			productName = "Wishing-WellTests";
+			productReference = 1B1BFB31286E17F200EDF965 /* Wishing-WellTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1B1BFB3A286E17F200EDF965 /* Wishing-WellUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B1BFB4B286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-WellUITests" */;
+			buildPhases = (
+				1B1BFB37286E17F200EDF965 /* Sources */,
+				1B1BFB38286E17F200EDF965 /* Frameworks */,
+				1B1BFB39286E17F200EDF965 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1B1BFB3D286E17F200EDF965 /* PBXTargetDependency */,
+			);
+			name = "Wishing-WellUITests";
+			productName = "Wishing-WellUITests";
+			productReference = 1B1BFB3B286E17F200EDF965 /* Wishing-WellUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1B1BFB14286E17F000EDF965 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					1B1BFB1B286E17F000EDF965 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					1B1BFB30286E17F200EDF965 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 1B1BFB1B286E17F000EDF965;
+					};
+					1B1BFB3A286E17F200EDF965 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 1B1BFB1B286E17F000EDF965;
+					};
+				};
+			};
+			buildConfigurationList = 1B1BFB17286E17F000EDF965 /* Build configuration list for PBXProject "Wishing-Well" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1B1BFB13286E17F000EDF965;
+			productRefGroup = 1B1BFB1D286E17F000EDF965 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1B1BFB1B286E17F000EDF965 /* Wishing-Well */,
+				1B1BFB30286E17F200EDF965 /* Wishing-WellTests */,
+				1B1BFB3A286E17F200EDF965 /* Wishing-WellUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1B1BFB1A286E17F000EDF965 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B1BFB27286E17F200EDF965 /* Preview Assets.xcassets in Resources */,
+				1B1BFB24286E17F200EDF965 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B1BFB2F286E17F200EDF965 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B1BFB39286E17F200EDF965 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1B1BFB18286E17F000EDF965 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B1BFB29286E17F200EDF965 /* Persistence.swift in Sources */,
+				1B1BFB2C286E17F200EDF965 /* Wishing_Well.xcdatamodeld in Sources */,
+				1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */,
+				1B1BFB20286E17F000EDF965 /* Wishing_WellApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B1BFB2D286E17F200EDF965 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B1BFB37286E17F200EDF965 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B1BFB42286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift in Sources */,
+				1B1BFB40286E17F200EDF965 /* Wishing_WellUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1B1BFB33286E17F200EDF965 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B1BFB1B286E17F000EDF965 /* Wishing-Well */;
+			targetProxy = 1B1BFB32286E17F200EDF965 /* PBXContainerItemProxy */;
+		};
+		1B1BFB3D286E17F200EDF965 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B1BFB1B286E17F000EDF965 /* Wishing-Well */;
+			targetProxy = 1B1BFB3C286E17F200EDF965 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1B1BFB43286E17F200EDF965 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1B1BFB44286E17F200EDF965 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1B1BFB46286E17F200EDF965 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Wishing-Well/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "mckiba.Wishing-Well";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1B1BFB47286E17F200EDF965 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Wishing-Well/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "mckiba.Wishing-Well";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1B1BFB49286E17F200EDF965 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "mckiba.Wishing-WellTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wishing-Well.app/Wishing-Well";
+			};
+			name = Debug;
+		};
+		1B1BFB4A286E17F200EDF965 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "mckiba.Wishing-WellTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wishing-Well.app/Wishing-Well";
+			};
+			name = Release;
+		};
+		1B1BFB4C286E17F200EDF965 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "mckiba.Wishing-WellUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Wishing-Well";
+			};
+			name = Debug;
+		};
+		1B1BFB4D286E17F200EDF965 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "mckiba.Wishing-WellUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Wishing-Well";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1B1BFB17286E17F000EDF965 /* Build configuration list for PBXProject "Wishing-Well" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B1BFB43286E17F200EDF965 /* Debug */,
+				1B1BFB44286E17F200EDF965 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1B1BFB45286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-Well" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B1BFB46286E17F200EDF965 /* Debug */,
+				1B1BFB47286E17F200EDF965 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1B1BFB48286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-WellTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B1BFB49286E17F200EDF965 /* Debug */,
+				1B1BFB4A286E17F200EDF965 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1B1BFB4B286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-WellUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B1BFB4C286E17F200EDF965 /* Debug */,
+				1B1BFB4D286E17F200EDF965 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1B1BFB2A286E17F200EDF965 /* Wishing_Well.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1B1BFB2B286E17F200EDF965 /* Wishing_Well.xcdatamodel */,
+			);
+			currentVersion = 1B1BFB2B286E17F200EDF965 /* Wishing_Well.xcdatamodel */;
+			path = Wishing_Well.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1B1BFB14286E17F000EDF965 /* Project object */;
+}
