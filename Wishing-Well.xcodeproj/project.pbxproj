@@ -16,6 +16,27 @@
 		1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB35286E17F200EDF965 /* Wishing_WellTests.swift */; };
 		1B1BFB40286E17F200EDF965 /* Wishing_WellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */; };
 		1B1BFB42286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */; };
+		1BE6DD552898CE530099C7A1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6DD542898CE530099C7A1 /* Login.swift */; };
+		1BFFF3D329163D4800D0E87F /* loginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3D229163D4800D0E87F /* loginViewModel.swift */; };
+		1BFFF3D429163D4800D0E87F /* loginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3D229163D4800D0E87F /* loginViewModel.swift */; };
+		1BFFF3D72916452300D0E87F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3D62916452300D0E87F /* FirebaseAuth */; };
+		1BFFF3D92916452300D0E87F /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3D82916452300D0E87F /* FirebaseAuthCombine-Community */; };
+		1BFFF3DB2916452300D0E87F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3DA2916452300D0E87F /* FirebaseDatabase */; };
+		1BFFF3DD2916452300D0E87F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3DC2916452300D0E87F /* FirebaseFirestore */; };
+		1BFFF3DF2916452300D0E87F /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3DE2916452300D0E87F /* FirebaseFirestoreCombine-Community */; };
+		1BFFF3E12916452300D0E87F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3E02916452300D0E87F /* FirebaseFirestoreSwift */; };
+		1BFFF3E32916452300D0E87F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3E22916452300D0E87F /* FirebaseStorage */; };
+		1BFFF3E52916452300D0E87F /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3E42916452300D0E87F /* FirebaseStorageCombine-Community */; };
+		1BFFF3EA291647FE00D0E87F /* AppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3E9291647FE00D0E87F /* AppleSignIn.swift */; };
+		1BFFF3EB291647FE00D0E87F /* AppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3E9291647FE00D0E87F /* AppleSignIn.swift */; };
+		1BFFF3F129164B3B00D0E87F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */; };
+		1BFFF3F229164B3B00D0E87F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */; };
+		1BFFF3F329164B3B00D0E87F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */; };
+		1BFFF3FD2916A0B500D0E87F /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFF3FB2916A0B500D0E87F /* Montserrat-Regular.ttf */; };
+		1BFFF3FE2916A0B500D0E87F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFF3FC2916A0B500D0E87F /* Montserrat-Bold.ttf */; };
+		1BFFF4002916A0EA00D0E87F /* Noteworthy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFF3FF2916A0EA00D0E87F /* Noteworthy-Bold.ttf */; };
+		1BFFF4032916A34D00D0E87F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF4022916A34D00D0E87F /* Color.swift */; };
+		1BFFF40529173D4C00D0E87F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF40429173D4C00D0E87F /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +69,17 @@
 		1B1BFB3B286E17F200EDF965 /* Wishing-WellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wishing-WellUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellUITests.swift; sourceTree = "<group>"; };
 		1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1B23BB6D289F185B002CFD8A /* Wishing-Well.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wishing-Well.entitlements"; sourceTree = "<group>"; };
+		1BE6DD542898CE530099C7A1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		1BFFF3D229163D4800D0E87F /* loginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewModel.swift; sourceTree = "<group>"; };
+		1BFFF3E9291647FE00D0E87F /* AppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignIn.swift; sourceTree = "<group>"; };
+		1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1BFFF3FB2916A0B500D0E87F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		1BFFF3FC2916A0B500D0E87F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		1BFFF3FF2916A0EA00D0E87F /* Noteworthy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Noteworthy-Bold.ttf"; sourceTree = "<group>"; };
+		1BFFF4012916A1C500D0E87F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1BFFF4022916A34D00D0E87F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		1BFFF40429173D4C00D0E87F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +87,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFFF3DB2916452300D0E87F /* FirebaseDatabase in Frameworks */,
+				1BFFF3DD2916452300D0E87F /* FirebaseFirestore in Frameworks */,
+				1BFFF3E52916452300D0E87F /* FirebaseStorageCombine-Community in Frameworks */,
+				1BFFF3D72916452300D0E87F /* FirebaseAuth in Frameworks */,
+				1BFFF3DF2916452300D0E87F /* FirebaseFirestoreCombine-Community in Frameworks */,
+				1BFFF3E32916452300D0E87F /* FirebaseStorage in Frameworks */,
+				1BFFF3D92916452300D0E87F /* FirebaseAuthCombine-Community in Frameworks */,
+				1BFFF3E12916452300D0E87F /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +118,7 @@
 		1B1BFB13286E17F000EDF965 = {
 			isa = PBXGroup;
 			children = (
+				1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */,
 				1B1BFB1E286E17F000EDF965 /* Wishing-Well */,
 				1B1BFB34286E17F200EDF965 /* Wishing-WellTests */,
 				1B1BFB3E286E17F200EDF965 /* Wishing-WellUITests */,
@@ -98,10 +139,13 @@
 		1B1BFB1E286E17F000EDF965 /* Wishing-Well */ = {
 			isa = PBXGroup;
 			children = (
-				1B1BFB1F286E17F000EDF965 /* Wishing_WellApp.swift */,
-				1B1BFB21286E17F000EDF965 /* ContentView.swift */,
+				1BFFF4012916A1C500D0E87F /* Info.plist */,
+				1B23BB6D289F185B002CFD8A /* Wishing-Well.entitlements */,
+				1BE6DD532898CDEC0099C7A1 /* viewModel */,
+				1BE6DD522898CDE40099C7A1 /* view */,
+				1BE6DD512898CDD70099C7A1 /* model */,
 				1B1BFB23286E17F200EDF965 /* Assets.xcassets */,
-				1B1BFB28286E17F200EDF965 /* Persistence.swift */,
+				1BFFF3F429169C2C00D0E87F /* Resources */,
 				1B1BFB2A286E17F200EDF965 /* Wishing_Well.xcdatamodeld */,
 				1B1BFB25286E17F200EDF965 /* Preview Content */,
 			);
@@ -133,6 +177,53 @@
 			path = "Wishing-WellUITests";
 			sourceTree = "<group>";
 		};
+		1BE6DD512898CDD70099C7A1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1B1BFB28286E17F200EDF965 /* Persistence.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1BE6DD522898CDE40099C7A1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				1B1BFB21286E17F000EDF965 /* ContentView.swift */,
+				1BE6DD542898CE530099C7A1 /* Login.swift */,
+				1BFFF40429173D4C00D0E87F /* Home.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1BE6DD532898CDEC0099C7A1 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1BFFF3E9291647FE00D0E87F /* AppleSignIn.swift */,
+				1B1BFB1F286E17F000EDF965 /* Wishing_WellApp.swift */,
+				1BFFF3D229163D4800D0E87F /* loginViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		1BFFF3F429169C2C00D0E87F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1BFFF3F529169C3C00D0E87F /* Fonts */,
+				1BFFF4022916A34D00D0E87F /* Color.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1BFFF3F529169C3C00D0E87F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1BFFF3FF2916A0EA00D0E87F /* Noteworthy-Bold.ttf */,
+				1BFFF3FC2916A0B500D0E87F /* Montserrat-Bold.ttf */,
+				1BFFF3FB2916A0B500D0E87F /* Montserrat-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +240,16 @@
 			dependencies = (
 			);
 			name = "Wishing-Well";
+			packageProductDependencies = (
+				1BFFF3D62916452300D0E87F /* FirebaseAuth */,
+				1BFFF3D82916452300D0E87F /* FirebaseAuthCombine-Community */,
+				1BFFF3DA2916452300D0E87F /* FirebaseDatabase */,
+				1BFFF3DC2916452300D0E87F /* FirebaseFirestore */,
+				1BFFF3DE2916452300D0E87F /* FirebaseFirestoreCombine-Community */,
+				1BFFF3E02916452300D0E87F /* FirebaseFirestoreSwift */,
+				1BFFF3E22916452300D0E87F /* FirebaseStorage */,
+				1BFFF3E42916452300D0E87F /* FirebaseStorageCombine-Community */,
+			);
 			productName = "Wishing-Well";
 			productReference = 1B1BFB1C286E17F000EDF965 /* Wishing-Well.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +322,9 @@
 				Base,
 			);
 			mainGroup = 1B1BFB13286E17F000EDF965;
+			packageReferences = (
+				1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 1B1BFB1D286E17F000EDF965 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -238,6 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B1BFB27286E17F200EDF965 /* Preview Assets.xcassets in Resources */,
+				1BFFF3F129164B3B00D0E87F /* GoogleService-Info.plist in Resources */,
+				1BFFF3FE2916A0B500D0E87F /* Montserrat-Bold.ttf in Resources */,
+				1BFFF4002916A0EA00D0E87F /* Noteworthy-Bold.ttf in Resources */,
+				1BFFF3FD2916A0B500D0E87F /* Montserrat-Regular.ttf in Resources */,
 				1B1BFB24286E17F200EDF965 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFFF3F229164B3B00D0E87F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFFF3F329164B3B00D0E87F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +373,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFFF3EA291647FE00D0E87F /* AppleSignIn.swift in Sources */,
 				1B1BFB29286E17F200EDF965 /* Persistence.swift in Sources */,
+				1BE6DD552898CE530099C7A1 /* Login.swift in Sources */,
+				1BFFF3D329163D4800D0E87F /* loginViewModel.swift in Sources */,
+				1BFFF40529173D4C00D0E87F /* Home.swift in Sources */,
 				1B1BFB2C286E17F200EDF965 /* Wishing_Well.xcdatamodeld in Sources */,
+				1BFFF4032916A34D00D0E87F /* Color.swift in Sources */,
 				1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */,
 				1B1BFB20286E17F000EDF965 /* Wishing_WellApp.swift in Sources */,
 			);
@@ -274,6 +389,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFFF3EB291647FE00D0E87F /* AppleSignIn.swift in Sources */,
+				1BFFF3D429163D4800D0E87F /* loginViewModel.swift in Sources */,
 				1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,11 +539,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Wishing-Well/Wishing-Well.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wishing-Well/Preview Content\"";
+				DEVELOPMENT_TEAM = 7RFQ8P9BJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wishing-Well/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,11 +570,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Wishing-Well/Wishing-Well.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wishing-Well/Preview Content\"";
+				DEVELOPMENT_TEAM = 7RFQ8P9BJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wishing-Well/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -585,6 +708,60 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1BFFF3D62916452300D0E87F /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		1BFFF3D82916452300D0E87F /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		1BFFF3DA2916452300D0E87F /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		1BFFF3DC2916452300D0E87F /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		1BFFF3DE2916452300D0E87F /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		1BFFF3E02916452300D0E87F /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		1BFFF3E22916452300D0E87F /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		1BFFF3E42916452300D0E87F /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BFFF3D52916452300D0E87F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1B1BFB2A286E17F200EDF965 /* Wishing_Well.xcdatamodeld */ = {
