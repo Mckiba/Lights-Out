@@ -11,7 +11,6 @@ import AuthenticationServices
 import Firebase
 import SwiftUI
 
-
 class LoginViewModel: ObservableObject {
     
     @Published var nonce = ""

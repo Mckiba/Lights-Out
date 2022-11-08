@@ -7,6 +7,8 @@
 
 import SwiftUI
 import AuthenticationServices
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct Login: View {
     
@@ -65,28 +67,10 @@ struct Login: View {
                     .frame(width: 327.0, height: 44)
                     
                     
-                    //CONTINUE WITH GOOGLE
-                    Button(action: {}, label: {
-                        if #available(iOS 16.0, *) {
-                            Text("CONTINUE WITH GOOGLE")
-                                .font(.custom("Montserrat-Bold",size:12))
-                                .foregroundColor(Color.themeGray)
-                                .multilineTextAlignment(.center)
-                                .frame(width: 327.0, height: 44.0)
-                                .fontWeight(.bold)
-                                .border(Color.themeGray)
-
-                        } else {
-                            // Fallback on earlier versions
-                            Text("CONTINUE WITH GOOGLE")
-                                .font(.custom("Montserrat-Bold",size:12))
-                                .foregroundColor(Color.themeGray)
-                                .multilineTextAlignment(.center)
-                                .frame(width: 327.0, height: 44.0)
-                                .border(Color.themeGray)
-                         }
-                    })
-                    .buttonBorderShape(.roundedRectangle)
+                    GoogleSignInButton{
+                        
+                    }.frame(width: 327.0,height: 44)
+                        .buttonBorderShape(.roundedRectangle(radius: 20))
  
                     //SIGN UP WITH EMAIL
                     Button(action: {}, label: {
@@ -110,6 +94,20 @@ struct Login: View {
                     .buttonBorderShape(.roundedRectangle)
                     .background(Color.themeGray)
                 })
+                
+                Text("By continuing, you agree to accept our")
+                    .fontWeight(.regular)
+                    .foregroundColor(Color.black)
+                    .multilineTextAlignment(.center)
+                    .font(.custom("Montserrat-Regular.", size: 12))
+                    
+                Text("Privacy Policy & Terms of Service")
+                    .fontWeight(.regular)
+                    .foregroundColor(Color.black)
+                    .multilineTextAlignment(.center)
+                    .font(.custom("Montserrat-Regular.", size: 12))
+                    .offset(x: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/-20.0/*@END_MENU_TOKEN@*/)
+                    
  
                 Spacer()
             })
