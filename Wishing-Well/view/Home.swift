@@ -15,7 +15,7 @@ struct Home: View {
         
         NavigationView{
             VStack{
-                Text("Logged in succesfully using Apple Login")
+                Text("Logged in succesfully")
                 
                 
                 Button(action: {

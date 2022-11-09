@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1B09D1C229189F8B00D6435B /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1B09D1C129189F8B00D6435B /* GoogleSignIn */; };
 		1B09D1C429189F8B00D6435B /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B09D1C329189F8B00D6435B /* GoogleSignInSwift */; };
-		1B1BFB20286E17F000EDF965 /* Wishing_WellApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB1F286E17F000EDF965 /* Wishing_WellApp.swift */; };
 		1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB21286E17F000EDF965 /* ContentView.swift */; };
 		1B1BFB24286E17F200EDF965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB23286E17F200EDF965 /* Assets.xcassets */; };
 		1B1BFB27286E17F200EDF965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */; };
@@ -29,8 +28,8 @@
 		1BFFF3E12916452300D0E87F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3E02916452300D0E87F /* FirebaseFirestoreSwift */; };
 		1BFFF3E32916452300D0E87F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3E22916452300D0E87F /* FirebaseStorage */; };
 		1BFFF3E52916452300D0E87F /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFF3E42916452300D0E87F /* FirebaseStorageCombine-Community */; };
-		1BFFF3EA291647FE00D0E87F /* AppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3E9291647FE00D0E87F /* AppleSignIn.swift */; };
-		1BFFF3EB291647FE00D0E87F /* AppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3E9291647FE00D0E87F /* AppleSignIn.swift */; };
+		1BFFF3EA291647FE00D0E87F /* AppSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3E9291647FE00D0E87F /* AppSignIn.swift */; };
+		1BFFF3EB291647FE00D0E87F /* AppSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3E9291647FE00D0E87F /* AppSignIn.swift */; };
 		1BFFF3F129164B3B00D0E87F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */; };
 		1BFFF3F229164B3B00D0E87F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */; };
 		1BFFF3F329164B3B00D0E87F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */; };
@@ -60,7 +59,6 @@
 
 /* Begin PBXFileReference section */
 		1B1BFB1C286E17F000EDF965 /* Wishing-Well.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wishing-Well.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B1BFB1F286E17F000EDF965 /* Wishing_WellApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellApp.swift; sourceTree = "<group>"; };
 		1B1BFB21286E17F000EDF965 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B1BFB23286E17F200EDF965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -74,7 +72,7 @@
 		1B23BB6D289F185B002CFD8A /* Wishing-Well.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wishing-Well.entitlements"; sourceTree = "<group>"; };
 		1BE6DD542898CE530099C7A1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1BFFF3D229163D4800D0E87F /* loginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewModel.swift; sourceTree = "<group>"; };
-		1BFFF3E9291647FE00D0E87F /* AppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignIn.swift; sourceTree = "<group>"; };
+		1BFFF3E9291647FE00D0E87F /* AppSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignIn.swift; sourceTree = "<group>"; };
 		1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1BFFF3FB2916A0B500D0E87F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		1BFFF3FC2916A0B500D0E87F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
@@ -202,8 +200,7 @@
 		1BE6DD532898CDEC0099C7A1 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1BFFF3E9291647FE00D0E87F /* AppleSignIn.swift */,
-				1B1BFB1F286E17F000EDF965 /* Wishing_WellApp.swift */,
+				1BFFF3E9291647FE00D0E87F /* AppSignIn.swift */,
 				1BFFF3D229163D4800D0E87F /* loginViewModel.swift */,
 			);
 			path = viewModel;
@@ -380,7 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BFFF3EA291647FE00D0E87F /* AppleSignIn.swift in Sources */,
+				1BFFF3EA291647FE00D0E87F /* AppSignIn.swift in Sources */,
 				1B1BFB29286E17F200EDF965 /* Persistence.swift in Sources */,
 				1BE6DD552898CE530099C7A1 /* Login.swift in Sources */,
 				1BFFF3D329163D4800D0E87F /* loginViewModel.swift in Sources */,
@@ -388,7 +385,6 @@
 				1B1BFB2C286E17F200EDF965 /* Wishing_Well.xcdatamodeld in Sources */,
 				1BFFF4032916A34D00D0E87F /* Color.swift in Sources */,
 				1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */,
-				1B1BFB20286E17F000EDF965 /* Wishing_WellApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BFFF3EB291647FE00D0E87F /* AppleSignIn.swift in Sources */,
+				1BFFF3EB291647FE00D0E87F /* AppSignIn.swift in Sources */,
 				1BFFF3D429163D4800D0E87F /* loginViewModel.swift in Sources */,
 				1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */,
 			);

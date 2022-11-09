@@ -9,6 +9,8 @@ import SwiftUI
 import AuthenticationServices
 import GoogleSignIn
 import GoogleSignInSwift
+import Firebase
+import FirebaseAuth
 
 struct Login: View {
     
@@ -43,34 +45,65 @@ struct Login: View {
                 Spacer()
                 VStack(alignment: .center,spacing: 33, content: {
 
-                    SignInWithAppleButton{ (request) in
-                        loginData.nonce = randomNonceString()
-                        request.requestedScopes = [.email,.fullName]
-                        request.nonce = sha256(loginData.nonce)
-                    } onCompletion: { (result) in
-                        switch(result){
-                        case .success(let user):
-                            print("success")
-                            //do login with firebase
-                            guard let credential = user.credential as?
-                                    ASAuthorizationAppleIDCredential else {
-                                print("Error with firebase")
-                                return
+                    HStack{
+                        Image("apple").resizable()
+                            .frame(width: 16, height: 19)
+                        Text("CONTINUE WITH APPLE").font(.custom("Montserrat-Bold", size: 12))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .tracking(0.5)
+                    }                    .frame(width: 327, height: 44)
+               
+                        .background(Color.black)
+                    .overlay{
+                        SignInWithAppleButton{ (request) in
+                            loginData.nonce = randomNonceString()
+                            request.requestedScopes = [.email,.fullName]
+                            request.nonce = sha256(loginData.nonce)
+                        } onCompletion: { (result) in
+                            switch(result){
+                            case .success(let user):
+                                print("success")
+                                //do login with firebase
+                                guard let credential = user.credential as?
+                                        ASAuthorizationAppleIDCredential else {
+                                    print("Error with firebase")
+                                    return
+                                }
+                                loginData.authenticate(credential: credential)
+                                
+                            case .failure(let error):
+                                print(error.localizedDescription)
                             }
-                            loginData.authenticate(credential: credential)
-                            
-                        case .failure(let error):
-                            print(error.localizedDescription)
                         }
+                        .signInWithAppleButtonStyle(.black)
+                         .blendMode(.overlay)
                     }
-                    .signInWithAppleButtonStyle(.black)
-                    .frame(width: 327.0, height: 44)
+                    .clipped()
+                    
+              
                     
                     
-                    GoogleSignInButton{
-                        
-                    }.frame(width: 327.0,height: 44)
-                        .buttonBorderShape(.roundedRectangle(radius: 20))
+                    HStack{
+                        Image("google").resizable()
+                            .frame(width: 24, height: 24)
+                        Text("CONTINUE WITH GOOGLE").font(.custom("Montserrat-Bold", size: 12))
+                            .fontWeight(.bold)
+                            .tracking(0.5)
+                     }                    .frame(width: 327, height: 44)
+                    .background{
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .border(.gray)
+                            .foregroundColor(.white)
+                    }.overlay{
+                        GoogleSignInButton{
+                            loginData.handleLogin()
+                        }.frame(width: 120)
+                        .blendMode(.overlay)
+                    }
+                    .clipped()
+                    
+                  
  
                     //SIGN UP WITH EMAIL
                     Button(action: {}, label: {
