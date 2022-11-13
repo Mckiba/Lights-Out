@@ -13,26 +13,24 @@ struct ContentView: View {
     @AppStorage("log_status") var log_Status = false
     
     var body: some View {
-//                if (!log_Status){
-//                 Login()
-//                }
-        TabView {
-            Home()
-                .tabItem {
-                    Label("", systemImage: "house.fill")
-                }
-            Upcoming()
-                .tabItem {
-                    Label("", systemImage: "magnifyingglass")
-                }
-            Upcoming()
-                .tabItem {
-                    Label("", systemImage: "calendar")
-                }
-            Upcoming()
-                .tabItem {
-                    Label("", systemImage: "bell")
-                }
+        if (!log_Status){
+            Login()
+        }else {
+            TabView {
+                Home()
+                    .tabItem {
+                        Label("", systemImage: "house.fill")
+                    }
+                Upcoming()
+                    .tabItem {
+                        Label("", systemImage: "magnifyingglass")
+                    }
+                Upcoming()
+                    .tabItem {
+                        Label("", systemImage: "calendar")
+                    }
+                
+            }.edgesIgnoringSafeArea(.vertical)
         }
     }
 }
@@ -40,7 +38,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView() 
+        ContentView()
     }
 }
 

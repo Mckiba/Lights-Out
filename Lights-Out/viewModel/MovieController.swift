@@ -15,28 +15,24 @@ class MovieViewModel: ObservableObject {
     @Published var movieThings: MovieModel!
     
     
-    init()  {
-        getPopularMovies()
+    init() {
+         getPopularMovies()
     }
     
     func getPopularMovies(){
         
-        //        isLoading = true
-        
-        guard let url = URL(string: "https://api.themoviedb.org/3/trending/all/week?api_key=599b0cb2f39931497a62cbf1b2c057c8")
-        else{
-            return
-        }
-        
-        
-        let json = try! String(contentsOf: url)
-        
-        do{
-            movieThings = try MovieModel(json)
-        }catch{
-            print(String(describing: error))
-        }
-        
+ 
+            guard let url = URL(string: "https://api.themoviedb.org/3/trending/all/day?api_key=599b0cb2f39931497a62cbf1b2c057c8")
+            else{
+                return
+            }
+            
+            let json = try! String(contentsOf: url)
+            do{
+                self.movieThings = try MovieModel(json)
+            }catch{
+                print(String(describing: error))
+            }
      }
 //        let task = URLSession.shared.dataTask(with: url) { data, res, error in
 //

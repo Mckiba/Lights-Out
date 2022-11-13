@@ -19,28 +19,22 @@ struct Login: View {
         
         
         ZStack{
-            Image("bg")
+            Image("background4")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width)
                 .ignoresSafeArea()
             
             VStack(spacing: 25, content: {
-                Text("wishing well")
+                Text("Lights Out")
                     .font(.custom("Noteworthy-Bold",size:24))
                     .fontWeight(.bold)
-                    .foregroundColor(.themeColor)
+                    .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity,alignment:  .center)
                     .padding()
                     .offset(y:15)
                     .padding(.vertical,20)
-                
-                
-                Image("logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 198, height: 260)
                 
                 Spacer()
                 VStack(alignment: .center,spacing: 33, content: {
@@ -90,12 +84,11 @@ struct Login: View {
                         Text("CONTINUE WITH GOOGLE").font(.custom("Montserrat-Bold", size: 12))
                             .fontWeight(.bold)
                             .tracking(0.5)
-                     }                    .frame(width: 327, height: 44)
-                    .background{
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .border(Color.themeGray)
-                            .foregroundColor(.white)
-                    }.overlay{
+                     }
+                    .frame(width: 327, height: 44)
+                    .clipShape(RoundedRectangle(cornerRadius: 60)).foregroundColor(Color.black)                    .background(Color.white)
+                    .foregroundColor(.white)
+                    .overlay{
                         GoogleSignInButton{
                             loginData.handleLogin()
                         }.frame(width: 120)
@@ -128,20 +121,11 @@ struct Login: View {
                     .background(Color.themeGray)
                 })
                 
-                Text("By continuing, you agree to accept our")
+                Text("By continuing, you agree to accept our\nPrivacy Policy & Terms of Service")
                     .fontWeight(.regular)
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.white)
                     .multilineTextAlignment(.center)
                     .font(.custom("Montserrat-Regular.", size: 12))
-                    
-                Text("Privacy Policy & Terms of Service")
-                    .fontWeight(.regular)
-                    .foregroundColor(Color.black)
-                    .multilineTextAlignment(.center)
-                    .font(.custom("Montserrat-Regular.", size: 12))
-                    .offset(x: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/-20.0/*@END_MENU_TOKEN@*/)
-                    
- 
                 Spacer()
             })
         }

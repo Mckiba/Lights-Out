@@ -33,25 +33,23 @@ struct Home: View {
                 VStack(alignment:.leading,content: {
                     Text("Hi Tester").fontWeight(.bold)
                         .font(.largeTitle)
-                    Text("Where would you like to go?")
                 }).padding(.trailing)
                 Spacer()
                 VStack(alignment: .center,content : {
                     Image(systemName: "person.crop.circle.fill").frame(height: 30)
                         .font(.system(size: 35))
-                    Button(action: {
-                        DispatchQueue.global(qos: .background).async {
-                            try? Auth.auth().signOut()
-                        }
-                        withAnimation(.easeInOut){
-                            log_Status = false
-                        }
-                    }, label: {
-                        
-                        Text("Log Out")
-                            .foregroundColor(Color.black)
-                            .fontWeight(.semibold)
-                    })
+//                    Button(action: {
+//                        DispatchQueue.global(qos: .background).async {
+//                            try? Auth.auth().signOut()
+//                        }
+//                        withAnimation(.easeInOut){
+//                            log_Status = false
+//                        }
+//                    }, label: {
+//                        Text("Log Out")
+//                            .foregroundColor(Color.black)
+//                            .fontWeight(.semibold)
+//                    })
                 }).padding(.horizontal)
             }).padding(.horizontal)
                
@@ -67,32 +65,36 @@ struct Home: View {
             
             Text("Explore").font(.largeTitle).fontWeight(.bold).padding(.horizontal)
             
-            HStack(alignment: .center, content: {
+            HStack(alignment: .center, spacing:20, content: {
                 VStack(alignment: .center, content: {
-                    Image(systemName: "airplane.circle").font(.system(size: 60)).foregroundColor(Color.gray)
+                    Image("movie").resizable().aspectRatio( contentMode: .fit)
+                        .clipShape(Circle())
+                        
+                      
                     Text("Movies")
-                }).padding(.leading,20)
-                
+                })
                 VStack(alignment: .center, content: {
-                    Image(systemName: "bed.double.circle").font(.system(size: 60)).foregroundColor(Color.gray)
-                    Text("TV-Series")
+                    Image("tv").resizable().aspectRatio( contentMode: .fit)
+                        .clipShape(Circle())
+                       
+                      
+                    Text("TV Shows")
                 })
                 
                 VStack(alignment: .center, content: {
-                    Image(systemName: "car.circle").font(.system(size: 60)).foregroundColor(Color.gray)
-                    Text("Anime")
-                })
-                
-                VStack(alignment: .center, content: {
-                    Image(systemName: "doc.circle").font(.system(size: 60)).foregroundColor(Color.gray)
+                    Image("tv").resizable().aspectRatio( contentMode: .fit)
+                        .clipShape(Circle())
+                      
                     Text("People")
                 })
-            }).padding()
+                
+          
+            })
             
             HStack(alignment: .center, content: {
                 Text("Trending").font(.headline).padding()
                 Spacer()
-                Text("See All >").padding()
+                Text("See All").padding()
             })
             
             ScrollView(.horizontal,content: {
@@ -106,7 +108,7 @@ struct Home: View {
                             } placeholder: {
                                 ProgressView()
                             }
-                            Text(movie.originalTitle ??  "Coming Soon").fontWeight(.bold)
+                            Text(movie.originalTitle ??  "Coming Soon").fontWeight(.bold).lineLimit(nil)
                         })
                     }
                 }).padding(.horizontal)
