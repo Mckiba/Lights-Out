@@ -93,7 +93,7 @@ struct Login: View {
                      }                    .frame(width: 327, height: 44)
                     .background{
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .border(.gray)
+                            .border(Color.themeGray)
                             .foregroundColor(.white)
                     }.overlay{
                         GoogleSignInButton{

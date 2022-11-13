@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		1B09D1C229189F8B00D6435B /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1B09D1C129189F8B00D6435B /* GoogleSignIn */; };
 		1B09D1C429189F8B00D6435B /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B09D1C329189F8B00D6435B /* GoogleSignInSwift */; };
+		1B0A71D6292075380070B180 /* Upcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71D5292075370070B180 /* Upcoming.swift */; };
+		1B0A71D8292077BF0070B180 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71D7292077BF0070B180 /* Messages.swift */; };
+		1B0A71DA2920CC140070B180 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71D92920CC140070B180 /* MovieModel.swift */; };
+		1B0A71DB2920CC140070B180 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71D92920CC140070B180 /* MovieModel.swift */; };
+		1B0A71DD2920D0740070B180 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71DC2920D0740070B180 /* MovieController.swift */; };
+		1B0A71DE2920D0740070B180 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71DC2920D0740070B180 /* MovieController.swift */; };
+		1B0A71E12920DDFE0070B180 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A71DF2920DDFE0070B180 /* Info.plist */; };
+		1B0A71E3292175DB0070B180 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71E2292175DB0070B180 /* Movie.swift */; };
+		1B0A71E4292175DB0070B180 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71E2292175DB0070B180 /* Movie.swift */; };
 		1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB21286E17F000EDF965 /* ContentView.swift */; };
 		1B1BFB24286E17F200EDF965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB23286E17F200EDF965 /* Assets.xcassets */; };
 		1B1BFB27286E17F200EDF965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */; };
-		1B1BFB29286E17F200EDF965 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB28286E17F200EDF965 /* Persistence.swift */; };
-		1B1BFB2C286E17F200EDF965 /* Wishing_Well.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB2A286E17F200EDF965 /* Wishing_Well.xcdatamodeld */; };
 		1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB35286E17F200EDF965 /* Wishing_WellTests.swift */; };
 		1B1BFB40286E17F200EDF965 /* Wishing_WellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */; };
 		1B1BFB42286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */; };
@@ -58,15 +65,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B1BFB1C286E17F000EDF965 /* Wishing-Well.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wishing-Well.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B0A71D5292075370070B180 /* Upcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upcoming.swift; sourceTree = "<group>"; };
+		1B0A71D7292077BF0070B180 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		1B0A71D92920CC140070B180 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		1B0A71DC2920D0740070B180 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
+		1B0A71DF2920DDFE0070B180 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B0A71E2292175DB0070B180 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		1B1BFB1C286E17F000EDF965 /* Lights-Out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lights-Out.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1BFB21286E17F000EDF965 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B1BFB23286E17F200EDF965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1B1BFB28286E17F200EDF965 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		1B1BFB2B286E17F200EDF965 /* Wishing_Well.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wishing_Well.xcdatamodel; sourceTree = "<group>"; };
-		1B1BFB31286E17F200EDF965 /* Wishing-WellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wishing-WellTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B1BFB31286E17F200EDF965 /* Lights-OutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lights-OutTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1BFB35286E17F200EDF965 /* Wishing_WellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellTests.swift; sourceTree = "<group>"; };
-		1B1BFB3B286E17F200EDF965 /* Wishing-WellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wishing-WellUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B1BFB3B286E17F200EDF965 /* Lights-OutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lights-OutUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellUITests.swift; sourceTree = "<group>"; };
 		1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1B23BB6D289F185B002CFD8A /* Wishing-Well.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wishing-Well.entitlements"; sourceTree = "<group>"; };
@@ -77,7 +88,6 @@
 		1BFFF3FB2916A0B500D0E87F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		1BFFF3FC2916A0B500D0E87F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		1BFFF3FF2916A0EA00D0E87F /* Noteworthy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Noteworthy-Bold.ttf"; sourceTree = "<group>"; };
-		1BFFF4012916A1C500D0E87F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1BFFF4022916A34D00D0E87F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1BFFF40429173D4C00D0E87F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,9 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				1BFFF3F029164B3B00D0E87F /* GoogleService-Info.plist */,
-				1B1BFB1E286E17F000EDF965 /* Wishing-Well */,
-				1B1BFB34286E17F200EDF965 /* Wishing-WellTests */,
-				1B1BFB3E286E17F200EDF965 /* Wishing-WellUITests */,
+				1B1BFB1E286E17F000EDF965 /* Lights-Out */,
+				1B1BFB34286E17F200EDF965 /* Lights-OutTests */,
+				1B1BFB3E286E17F200EDF965 /* Lights-OutUITests */,
 				1B1BFB1D286E17F000EDF965 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,27 +141,26 @@
 		1B1BFB1D286E17F000EDF965 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B1BFB1C286E17F000EDF965 /* Wishing-Well.app */,
-				1B1BFB31286E17F200EDF965 /* Wishing-WellTests.xctest */,
-				1B1BFB3B286E17F200EDF965 /* Wishing-WellUITests.xctest */,
+				1B1BFB1C286E17F000EDF965 /* Lights-Out.app */,
+				1B1BFB31286E17F200EDF965 /* Lights-OutTests.xctest */,
+				1B1BFB3B286E17F200EDF965 /* Lights-OutUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1B1BFB1E286E17F000EDF965 /* Wishing-Well */ = {
+		1B1BFB1E286E17F000EDF965 /* Lights-Out */ = {
 			isa = PBXGroup;
 			children = (
-				1BFFF4012916A1C500D0E87F /* Info.plist */,
+				1B0A71DF2920DDFE0070B180 /* Info.plist */,
 				1B23BB6D289F185B002CFD8A /* Wishing-Well.entitlements */,
 				1BE6DD532898CDEC0099C7A1 /* viewModel */,
 				1BE6DD522898CDE40099C7A1 /* view */,
 				1BE6DD512898CDD70099C7A1 /* model */,
 				1B1BFB23286E17F200EDF965 /* Assets.xcassets */,
 				1BFFF3F429169C2C00D0E87F /* Resources */,
-				1B1BFB2A286E17F200EDF965 /* Wishing_Well.xcdatamodeld */,
 				1B1BFB25286E17F200EDF965 /* Preview Content */,
 			);
-			path = "Wishing-Well";
+			path = "Lights-Out";
 			sourceTree = "<group>";
 		};
 		1B1BFB25286E17F200EDF965 /* Preview Content */ = {
@@ -162,27 +171,28 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1B1BFB34286E17F200EDF965 /* Wishing-WellTests */ = {
+		1B1BFB34286E17F200EDF965 /* Lights-OutTests */ = {
 			isa = PBXGroup;
 			children = (
 				1B1BFB35286E17F200EDF965 /* Wishing_WellTests.swift */,
 			);
-			path = "Wishing-WellTests";
+			path = "Lights-OutTests";
 			sourceTree = "<group>";
 		};
-		1B1BFB3E286E17F200EDF965 /* Wishing-WellUITests */ = {
+		1B1BFB3E286E17F200EDF965 /* Lights-OutUITests */ = {
 			isa = PBXGroup;
 			children = (
 				1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */,
 				1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */,
 			);
-			path = "Wishing-WellUITests";
+			path = "Lights-OutUITests";
 			sourceTree = "<group>";
 		};
 		1BE6DD512898CDD70099C7A1 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				1B1BFB28286E17F200EDF965 /* Persistence.swift */,
+				1B0A71D92920CC140070B180 /* MovieModel.swift */,
+				1B0A71E2292175DB0070B180 /* Movie.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -193,6 +203,8 @@
 				1B1BFB21286E17F000EDF965 /* ContentView.swift */,
 				1BE6DD542898CE530099C7A1 /* Login.swift */,
 				1BFFF40429173D4C00D0E87F /* Home.swift */,
+				1B0A71D5292075370070B180 /* Upcoming.swift */,
+				1B0A71D7292077BF0070B180 /* Messages.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -202,6 +214,7 @@
 			children = (
 				1BFFF3E9291647FE00D0E87F /* AppSignIn.swift */,
 				1BFFF3D229163D4800D0E87F /* loginViewModel.swift */,
+				1B0A71DC2920D0740070B180 /* MovieController.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -228,9 +241,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1B1BFB1B286E17F000EDF965 /* Wishing-Well */ = {
+		1B1BFB1B286E17F000EDF965 /* Lights-Out */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B1BFB45286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-Well" */;
+			buildConfigurationList = 1B1BFB45286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Lights-Out" */;
 			buildPhases = (
 				1B1BFB18286E17F000EDF965 /* Sources */,
 				1B1BFB19286E17F000EDF965 /* Frameworks */,
@@ -240,7 +253,7 @@
 			);
 			dependencies = (
 			);
-			name = "Wishing-Well";
+			name = "Lights-Out";
 			packageProductDependencies = (
 				1BFFF3D62916452300D0E87F /* FirebaseAuth */,
 				1BFFF3D82916452300D0E87F /* FirebaseAuthCombine-Community */,
@@ -254,12 +267,12 @@
 				1B09D1C329189F8B00D6435B /* GoogleSignInSwift */,
 			);
 			productName = "Wishing-Well";
-			productReference = 1B1BFB1C286E17F000EDF965 /* Wishing-Well.app */;
+			productReference = 1B1BFB1C286E17F000EDF965 /* Lights-Out.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1B1BFB30286E17F200EDF965 /* Wishing-WellTests */ = {
+		1B1BFB30286E17F200EDF965 /* Lights-OutTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B1BFB48286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-WellTests" */;
+			buildConfigurationList = 1B1BFB48286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Lights-OutTests" */;
 			buildPhases = (
 				1B1BFB2D286E17F200EDF965 /* Sources */,
 				1B1BFB2E286E17F200EDF965 /* Frameworks */,
@@ -270,14 +283,14 @@
 			dependencies = (
 				1B1BFB33286E17F200EDF965 /* PBXTargetDependency */,
 			);
-			name = "Wishing-WellTests";
+			name = "Lights-OutTests";
 			productName = "Wishing-WellTests";
-			productReference = 1B1BFB31286E17F200EDF965 /* Wishing-WellTests.xctest */;
+			productReference = 1B1BFB31286E17F200EDF965 /* Lights-OutTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1B1BFB3A286E17F200EDF965 /* Wishing-WellUITests */ = {
+		1B1BFB3A286E17F200EDF965 /* Lights-OutUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B1BFB4B286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-WellUITests" */;
+			buildConfigurationList = 1B1BFB4B286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Lights-OutUITests" */;
 			buildPhases = (
 				1B1BFB37286E17F200EDF965 /* Sources */,
 				1B1BFB38286E17F200EDF965 /* Frameworks */,
@@ -288,9 +301,9 @@
 			dependencies = (
 				1B1BFB3D286E17F200EDF965 /* PBXTargetDependency */,
 			);
-			name = "Wishing-WellUITests";
+			name = "Lights-OutUITests";
 			productName = "Wishing-WellUITests";
-			productReference = 1B1BFB3B286E17F200EDF965 /* Wishing-WellUITests.xctest */;
+			productReference = 1B1BFB3B286E17F200EDF965 /* Lights-OutUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -316,7 +329,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1B1BFB17286E17F000EDF965 /* Build configuration list for PBXProject "Wishing-Well" */;
+			buildConfigurationList = 1B1BFB17286E17F000EDF965 /* Build configuration list for PBXProject "Lights-Out" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -333,9 +346,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1B1BFB1B286E17F000EDF965 /* Wishing-Well */,
-				1B1BFB30286E17F200EDF965 /* Wishing-WellTests */,
-				1B1BFB3A286E17F200EDF965 /* Wishing-WellUITests */,
+				1B1BFB1B286E17F000EDF965 /* Lights-Out */,
+				1B1BFB30286E17F200EDF965 /* Lights-OutTests */,
+				1B1BFB3A286E17F200EDF965 /* Lights-OutUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -358,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B0A71E12920DDFE0070B180 /* Info.plist in Resources */,
 				1BFFF3F229164B3B00D0E87F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,12 +392,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFFF3EA291647FE00D0E87F /* AppSignIn.swift in Sources */,
-				1B1BFB29286E17F200EDF965 /* Persistence.swift in Sources */,
+				1B0A71DD2920D0740070B180 /* MovieController.swift in Sources */,
 				1BE6DD552898CE530099C7A1 /* Login.swift in Sources */,
 				1BFFF3D329163D4800D0E87F /* loginViewModel.swift in Sources */,
+				1B0A71DA2920CC140070B180 /* MovieModel.swift in Sources */,
 				1BFFF40529173D4C00D0E87F /* Home.swift in Sources */,
-				1B1BFB2C286E17F200EDF965 /* Wishing_Well.xcdatamodeld in Sources */,
+				1B0A71D8292077BF0070B180 /* Messages.swift in Sources */,
 				1BFFF4032916A34D00D0E87F /* Color.swift in Sources */,
+				1B0A71D6292075380070B180 /* Upcoming.swift in Sources */,
+				1B0A71E3292175DB0070B180 /* Movie.swift in Sources */,
 				1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +410,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFFF3EB291647FE00D0E87F /* AppSignIn.swift in Sources */,
+				1B0A71DE2920D0740070B180 /* MovieController.swift in Sources */,
+				1B0A71E4292175DB0070B180 /* Movie.swift in Sources */,
 				1BFFF3D429163D4800D0E87F /* loginViewModel.swift in Sources */,
+				1B0A71DB2920CC140070B180 /* MovieModel.swift in Sources */,
 				1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,12 +432,12 @@
 /* Begin PBXTargetDependency section */
 		1B1BFB33286E17F200EDF965 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1B1BFB1B286E17F000EDF965 /* Wishing-Well */;
+			target = 1B1BFB1B286E17F000EDF965 /* Lights-Out */;
 			targetProxy = 1B1BFB32286E17F200EDF965 /* PBXContainerItemProxy */;
 		};
 		1B1BFB3D286E17F200EDF965 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1B1BFB1B286E17F000EDF965 /* Wishing-Well */;
+			target = 1B1BFB1B286E17F000EDF965 /* Lights-Out */;
 			targetProxy = 1B1BFB3C286E17F200EDF965 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -542,14 +562,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Wishing-Well/Wishing-Well.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Lights-Out/Wishing-Well.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Wishing-Well/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Lights-Out/Preview Content\"";
 				DEVELOPMENT_TEAM = 7RFQ8P9BJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wishing-Well/Info.plist";
+				INFOPLIST_FILE = "Lights-Out/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -573,14 +593,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Wishing-Well/Wishing-Well.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Lights-Out/Wishing-Well.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Wishing-Well/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Lights-Out/Preview Content\"";
 				DEVELOPMENT_TEAM = 7RFQ8P9BJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wishing-Well/Info.plist";
+				INFOPLIST_FILE = "Lights-Out/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -614,7 +634,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wishing-Well.app/Wishing-Well";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lights-Out.app/Lights-Out";
 			};
 			name = Debug;
 		};
@@ -633,7 +653,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wishing-Well.app/Wishing-Well";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lights-Out.app/Lights-Out";
 			};
 			name = Release;
 		};
@@ -674,7 +694,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B1BFB17286E17F000EDF965 /* Build configuration list for PBXProject "Wishing-Well" */ = {
+		1B1BFB17286E17F000EDF965 /* Build configuration list for PBXProject "Lights-Out" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B1BFB43286E17F200EDF965 /* Debug */,
@@ -683,7 +703,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B1BFB45286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-Well" */ = {
+		1B1BFB45286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Lights-Out" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B1BFB46286E17F200EDF965 /* Debug */,
@@ -692,7 +712,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B1BFB48286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-WellTests" */ = {
+		1B1BFB48286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Lights-OutTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B1BFB49286E17F200EDF965 /* Debug */,
@@ -701,7 +721,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B1BFB4B286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Wishing-WellUITests" */ = {
+		1B1BFB4B286E17F200EDF965 /* Build configuration list for PBXNativeTarget "Lights-OutUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B1BFB4C286E17F200EDF965 /* Debug */,
@@ -783,19 +803,6 @@
 			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		1B1BFB2A286E17F200EDF965 /* Wishing_Well.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				1B1BFB2B286E17F200EDF965 /* Wishing_Well.xcdatamodel */,
-			);
-			currentVersion = 1B1BFB2B286E17F200EDF965 /* Wishing_Well.xcdatamodel */;
-			path = Wishing_Well.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 1B1BFB14286E17F000EDF965 /* Project object */;
 }
