@@ -37,6 +37,8 @@ struct Login: View {
                     .padding(.vertical,20)
                 
                 Spacer()
+                Spacer()
+                Spacer()
                 VStack(alignment: .center,spacing: 33, content: {
 
                     HStack{

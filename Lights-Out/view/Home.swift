@@ -14,82 +14,63 @@ struct Home: View {
     @State var searchOption = ""
     @StateObject var movieViewModel = MovieViewModel()
     
-    
-    let sampleData = ["COlumbus", "Cleveland", "Miami"]
-    
-    var results: [String] {
-        if (searchOption.isEmpty){
-            return sampleData
-        }else{
-            return sampleData.filter{$0.contains(searchOption)}
-        }
-    }
-    
     var body: some View {
         
-        VStack(alignment: .leading,content: {
+        VStack(alignment: .center,content: {
             
-            HStack(alignment: .center, content: {
+            HStack(content: {
                 VStack(alignment:.leading,content: {
-                    Text("Hi Tester").fontWeight(.bold)
+                    Text("Hi Alvin").fontWeight(.bold)
                         .font(.largeTitle)
                 }).padding(.trailing)
                 Spacer()
                 VStack(alignment: .center,content : {
-                    Image(systemName: "person.crop.circle.fill").frame(height: 30)
-                        .font(.system(size: 35))
-//                    Button(action: {
-//                        DispatchQueue.global(qos: .background).async {
-//                            try? Auth.auth().signOut()
-//                        }
-//                        withAnimation(.easeInOut){
-//                            log_Status = false
-//                        }
-//                    }, label: {
-//                        Text("Log Out")
-//                            .foregroundColor(Color.black)
-//                            .fontWeight(.semibold)
-//                    })
+                                        Button(action: {
+                                            DispatchQueue.global(qos:                                           .background).async {
+                                                try? Auth.auth().signOut()
+                                            }
+                                            withAnimation(.easeInOut){
+                                                log_Status = false
+                                            }
+                                        }, label: {
+                                            Image(systemName: "person.crop.circle.fill").frame(height: 30)
+                                                .font(.system(size: 35))
+                                        })
                 }).padding(.horizontal)
             }).padding(.horizontal)
-               
+            
             HStack{
                 Text("Search")
-                 Spacer()
+                Spacer()
                 Image(systemName: "magnifyingglass")
                 
             }.frame(height:8).padding()
                 .background(Color.themeGray)
                 .clipShape(RoundedRectangle(cornerRadius: 20)).padding(.horizontal)
             
-            
-            Text("Explore").font(.largeTitle).fontWeight(.bold).padding(.horizontal)
+            HStack( content:  {
+                Text("Explore").font(.largeTitle).fontWeight(.bold).padding(.horizontal)
+                Spacer()
+            })
             
             HStack(alignment: .center, spacing:20, content: {
                 VStack(alignment: .center, content: {
                     Image("movie").resizable().aspectRatio( contentMode: .fit)
                         .clipShape(Circle())
-                        
-                      
-                    Text("Movies")
+                    Text("Movies").fontWeight(.bold)
                 })
                 VStack(alignment: .center, content: {
                     Image("tv").resizable().aspectRatio( contentMode: .fit)
                         .clipShape(Circle())
-                       
-                      
-                    Text("TV Shows")
+                    Text("TV Shows").fontWeight(.bold)
                 })
                 
                 VStack(alignment: .center, content: {
-                    Image("tv").resizable().aspectRatio( contentMode: .fit)
+                    Image("people").resizable().aspectRatio( contentMode: .fit)
                         .clipShape(Circle())
-                      
-                    Text("People")
+                    Text("People").fontWeight(.bold)
                 })
-                
-          
-            })
+            }).frame(height: 150)
             
             HStack(alignment: .center, content: {
                 Text("Trending").font(.headline).padding()
@@ -100,7 +81,7 @@ struct Home: View {
             ScrollView(.horizontal,content: {
                 HStack(alignment: .center, content: {
                     ForEach(movieViewModel.movieThings.results, id: \.self) { movie in
-                        VStack( content: {
+                        VStack(alignment:.center, content: {
                             AsyncImage(url: movie.posterURL) { image
                                 in image
                                     .resizable()
@@ -108,26 +89,18 @@ struct Home: View {
                             } placeholder: {
                                 ProgressView()
                             }
-                            Text(movie.originalTitle ??  "Coming Soon").fontWeight(.bold).lineLimit(nil)
-                        })
+                            Text(movie.originalTitle ?? movie.originalName ?? "Coming Soon").fontWeight(.bold)
+                        }).padding(.horizontal,10)
                     }
-                }).padding(.horizontal)
-                
+                }).padding(.leading)
             })
-            
-            
-          
-          
-            
             Spacer()
-
-            
         })
     }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        ContentView()
     }
 }

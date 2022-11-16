@@ -67,7 +67,7 @@ extension MovieModel {
     }
 }
 
-//
+
 // Hashable or Equatable:
 // The compiler will not be able to synthesize the implementation of Hashable or Equatable
 // for types that require the use of JSONAny, nor will the implementation of Hashable be

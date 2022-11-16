@@ -22,7 +22,7 @@ class MovieViewModel: ObservableObject {
     func getPopularMovies(){
         
  
-            guard let url = URL(string: "https://api.themoviedb.org/3/trending/all/day?api_key=599b0cb2f39931497a62cbf1b2c057c8")
+            guard let url = URL(string: "https://api.themoviedb.org/3/trending/tv/week?api_key=599b0cb2f39931497a62cbf1b2c057c8")
             else{
                 return
             }

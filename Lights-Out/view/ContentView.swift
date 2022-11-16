@@ -30,7 +30,8 @@ struct ContentView: View {
                         Label("", systemImage: "calendar")
                     }
                 
-            }.edgesIgnoringSafeArea(.vertical)
+            }.edgesIgnoringSafeArea(.vertical).colorScheme(.dark)
+
         }
     }
 }
