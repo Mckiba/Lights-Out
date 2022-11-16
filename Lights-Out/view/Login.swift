@@ -17,7 +17,6 @@ struct Login: View {
     @StateObject var loginData = LoginViewModel()
     var body: some View {
         
-        
         ZStack{
             Image("background4")
                 .resizable()
@@ -30,27 +29,22 @@ struct Login: View {
                     .font(.custom("Noteworthy-Bold",size:24))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity,alignment:  .center)
-                    .padding()
                     .offset(y:15)
                     .padding(.vertical,20)
                 
-                Spacer()
-                Spacer()
-                Spacer()
+                Spacer(minLength: 300)
+                
                 VStack(alignment: .center,spacing: 33, content: {
-
                     HStack{
-                        Image("apple").resizable()
-                            .frame(width: 16, height: 19)
+                        Image(systemName: "apple.logo").aspectRatio( contentMode: .fit).font(.system(size: 20))
                         Text("CONTINUE WITH APPLE").font(.custom("Montserrat-Bold", size: 12))
                             .fontWeight(.bold)
-                            .foregroundColor(.white)
                             .tracking(0.5)
-                    }                    .frame(width: 327, height: 44)
-               
-                        .background(Color.black)
+                    }
+                    .frame(width: 327, height: 44)
+                    .background(Color.black)
+                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                    .foregroundColor(Color.white)
                     .overlay{
                         SignInWithAppleButton{ (request) in
                             loginData.nonce = randomNonceString()
@@ -60,7 +54,7 @@ struct Login: View {
                             switch(result){
                             case .success(let user):
                                 print("success")
-                                //do login with firebase
+                                //MARK: do login with firebase
                                 guard let credential = user.credential as?
                                         ASAuthorizationAppleIDCredential else {
                                     print("Error with firebase")
@@ -72,13 +66,10 @@ struct Login: View {
                                 print(error.localizedDescription)
                             }
                         }
-                        .signInWithAppleButtonStyle(.black)
-                         .blendMode(.overlay)
+                        .signInWithAppleButtonStyle(.white)
+                        .frame(width: 120)
+                        .blendMode(.overlay)
                     }
-                    .clipped()
-                    
-              
-                    
                     
                     HStack{
                         Image("google").resizable()
@@ -86,41 +77,39 @@ struct Login: View {
                         Text("CONTINUE WITH GOOGLE").font(.custom("Montserrat-Bold", size: 12))
                             .fontWeight(.bold)
                             .tracking(0.5)
-                     }
+                    }
                     .frame(width: 327, height: 44)
-                    .clipShape(RoundedRectangle(cornerRadius: 60)).foregroundColor(Color.black)                    .background(Color.white)
-                    .foregroundColor(.white)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                    .foregroundColor(Color.black)
                     .overlay{
                         GoogleSignInButton{
                             loginData.handleLogin()
                         }.frame(width: 120)
-                        .blendMode(.overlay)
+                            .blendMode(.overlay)
                     }
-                    .clipped()
                     
-                  
- 
-                    //SIGN UP WITH EMAIL
-                    Button(action: {}, label: {
-                        if #available(iOS 16.0, *) {
-                            Text("SIGN UP WITH EMAIL")
-                                .font(.custom("Montserrat-Bold",size:12))
-                                .foregroundColor(.white)
-                                .multilineTextAlignment(.center)
-                                .frame(width: 327.0, height: 44.0)
-                                .fontWeight(.bold)
-                        } else {
-                            // Fallback on earlier versions
-                            Text("SIGN UP WITH EMAIL")
-                                .font(.custom("Montserrat-Bold",size:12))
-                                .foregroundColor(.white)
-                                .multilineTextAlignment(.center)
-                                .frame(width: 327.0, height: 44.0)
-                         }
-                    })
-                    .cornerRadius(20)
-                    .buttonBorderShape(.roundedRectangle)
+                    //MARK: SIGN UP WITH EMAIL
+                    HStack{
+                        Button(action: {}, label: {
+                            if #available(iOS 16.0, *) {
+                                Image(systemName: "envelope")
+                                Text("SIGN UP WITH EMAIL")
+                                    .font(.custom("Montserrat-Bold",size:12))
+                                    .fontWeight(.bold)
+                            } else {
+                                // Fallback on earlier versions
+                                Image(systemName: "envelope")
+                                Text("SIGN UP WITH EMAIL")
+                                    .font(.custom("Montserrat-Bold",size:12))
+                                    .multilineTextAlignment(.center)
+                            }
+                        })
+                    }
+                    .frame(width: 327, height: 44)
                     .background(Color.themeGray)
+                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                    .foregroundColor(Color.white)
                 })
                 
                 Text("By continuing, you agree to accept our\nPrivacy Policy & Terms of Service")

@@ -29,9 +29,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("", systemImage: "calendar")
                     }
-                
             }.edgesIgnoringSafeArea(.vertical).colorScheme(.dark)
-
         }
     }
 }

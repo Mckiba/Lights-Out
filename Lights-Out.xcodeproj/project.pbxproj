@@ -18,6 +18,10 @@
 		1B0A71E12920DDFE0070B180 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B0A71DF2920DDFE0070B180 /* Info.plist */; };
 		1B0A71E3292175DB0070B180 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71E2292175DB0070B180 /* Movie.swift */; };
 		1B0A71E4292175DB0070B180 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71E2292175DB0070B180 /* Movie.swift */; };
+		1B0A71ED29248BEF0070B180 /* OffsetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71EB29248BEE0070B180 /* OffsetModifier.swift */; };
+		1B0A71EE29248BEF0070B180 /* OffsetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71EB29248BEE0070B180 /* OffsetModifier.swift */; };
+		1B0A71EF29248BEF0070B180 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71EC29248BEE0070B180 /* SnapCarousel.swift */; };
+		1B0A71F029248BEF0070B180 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71EC29248BEE0070B180 /* SnapCarousel.swift */; };
 		1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB21286E17F000EDF965 /* ContentView.swift */; };
 		1B1BFB24286E17F200EDF965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB23286E17F200EDF965 /* Assets.xcassets */; };
 		1B1BFB27286E17F200EDF965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */; };
@@ -71,6 +75,8 @@
 		1B0A71DC2920D0740070B180 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
 		1B0A71DF2920DDFE0070B180 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B0A71E2292175DB0070B180 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		1B0A71EB29248BEE0070B180 /* OffsetModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetModifier.swift; sourceTree = "<group>"; };
+		1B0A71EC29248BEE0070B180 /* SnapCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		1B1BFB1C286E17F000EDF965 /* Lights-Out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lights-Out.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1BFB21286E17F000EDF965 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B1BFB23286E17F200EDF965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,6 +208,8 @@
 			children = (
 				1B1BFB21286E17F000EDF965 /* ContentView.swift */,
 				1BE6DD542898CE530099C7A1 /* Login.swift */,
+				1B0A71EB29248BEE0070B180 /* OffsetModifier.swift */,
+				1B0A71EC29248BEE0070B180 /* SnapCarousel.swift */,
 				1BFFF40429173D4C00D0E87F /* Home.swift */,
 				1B0A71D5292075370070B180 /* Upcoming.swift */,
 				1B0A71D7292077BF0070B180 /* Messages.swift */,
@@ -392,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFFF3EA291647FE00D0E87F /* AppSignIn.swift in Sources */,
+				1B0A71EF29248BEF0070B180 /* SnapCarousel.swift in Sources */,
 				1B0A71DD2920D0740070B180 /* MovieController.swift in Sources */,
 				1BE6DD552898CE530099C7A1 /* Login.swift in Sources */,
 				1BFFF3D329163D4800D0E87F /* loginViewModel.swift in Sources */,
@@ -399,6 +408,7 @@
 				1BFFF40529173D4C00D0E87F /* Home.swift in Sources */,
 				1B0A71D8292077BF0070B180 /* Messages.swift in Sources */,
 				1BFFF4032916A34D00D0E87F /* Color.swift in Sources */,
+				1B0A71ED29248BEF0070B180 /* OffsetModifier.swift in Sources */,
 				1B0A71D6292075380070B180 /* Upcoming.swift in Sources */,
 				1B0A71E3292175DB0070B180 /* Movie.swift in Sources */,
 				1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */,
@@ -409,10 +419,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B0A71F029248BEF0070B180 /* SnapCarousel.swift in Sources */,
 				1BFFF3EB291647FE00D0E87F /* AppSignIn.swift in Sources */,
 				1B0A71DE2920D0740070B180 /* MovieController.swift in Sources */,
 				1B0A71E4292175DB0070B180 /* Movie.swift in Sources */,
 				1BFFF3D429163D4800D0E87F /* loginViewModel.swift in Sources */,
+				1B0A71EE29248BEF0070B180 /* OffsetModifier.swift in Sources */,
 				1B0A71DB2920CC140070B180 /* MovieModel.swift in Sources */,
 				1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */,
 			);
