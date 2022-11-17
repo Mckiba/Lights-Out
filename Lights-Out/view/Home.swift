@@ -12,7 +12,7 @@ struct Home: View {
     @AppStorage("log_status") var log_Status = false
     @State var searchOption = ""
     @StateObject var movieViewModel = MovieViewModel()
-    
+ 
     //MARK: Animated view properties
     @State var currentIndex: Int = 0
     
@@ -21,101 +21,84 @@ struct Home: View {
     @Environment(\.colorScheme ) var scheme
     var body: some View {
         
-        ZStack{
-            BGView()
-            VStack(alignment: .center,content: {
-                
-                HStack(content: {
-                    Text("Hi Alvin").fontWeight(.bold)
-                        .font(.largeTitle)
-                    Spacer()
-                    Button(action: {
-                        DispatchQueue.global(qos:                                           .background).async {
-                            try? Auth.auth().signOut()
-                        }
-                        withAnimation(.easeInOut){
-                            log_Status = false
-                        }
-                    }, label: {
-                        Image(systemName: "person.crop.circle.fill").frame(height: 30)
-                            .font(.system(size: 35))
-                    })
-                }).padding(.horizontal)
-                
-                //MARK: SEARCH
-                HStack{
-                    Text("Search")
-                    Spacer()
-                    Image(systemName: "magnifyingglass")
+        if movieViewModel.isLoading {
+            ProgressView()
+        } else {
+            
+            ZStack{
+                BGView()
+                VStack(alignment: .center,content: {
                     
-                }.frame(height:8).padding()
-                    .background(Color.themeGray)
-                    .clipShape(RoundedRectangle(cornerRadius: 20)).padding(.horizontal)
-                
-                HStack(alignment: .center, content: {
-                    Text("Trending").font(.headline).padding()
-                    Spacer()
-                })
-                
-                
-                SnapCarousel(spacing: 20,trailingSpace: 110, index: $currentIndex, items: movieViewModel.movieThings.results){
-                    movie in
+                    HStack(content: {
+                        Text("Hi Alvin").fontWeight(.bold)
+                            .font(.largeTitle)
+                        Spacer()
+                        Button(action: {
+                            DispatchQueue.global(qos:                                           .background).async {
+                                try? Auth.auth().signOut()
+                            }
+                            withAnimation(.easeInOut){
+                                log_Status = false
+                            }
+                        }, label: {
+                            Image(systemName: "person.crop.circle.fill").frame(height: 30)
+                                .font(.system(size: 35))
+                        })
+                    }).padding(.horizontal)
                     
-                    GeometryReader{proxy in
-                        let size = proxy.size
+                    //MARK: SEARCH
+                    HStack{
+                        Text("Search")
+                        Spacer()
+                        Image(systemName: "magnifyingglass")
                         
-                        AsyncImage(url: movie.posterURL) { image
-                            in image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width:size.width, height: size.height)
-                                .cornerRadius(15)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                    }.padding(.top,26)
-                }
-                
-                
-                //MARK: CATEGORIES
-                HStack(alignment: .center, spacing:10, content: {
-                    VStack(alignment: .center, content: {
-                        Text("Movies").fontWeight(.bold)
-                        Image("movie").resizable().aspectRatio( contentMode: .fit)
-                            .clipShape(Circle())
-                    })
-                    VStack(alignment: .center, content: {
-                        Text("TV Shows").fontWeight(.bold)
-                        Image("tv").resizable().aspectRatio( contentMode: .fit)
-                            .clipShape(Circle())
-                    })
+                    }.frame(height:8).padding()
+                        .background(Color.themeGray)
+                        .clipShape(RoundedRectangle(cornerRadius: 20)).padding(.horizontal)
                     
-                    VStack(alignment: .center, content: {
-                        Text("People").fontWeight(.bold)
-                        Image("people").resizable().aspectRatio( contentMode: .fit)
-                            .clipShape(Circle())
-                    })
-                }).frame(height: 150)
+                    
                 
-                
-                /*ScrollView(.horizontal,content: {
-                 HStack(alignment: .center, content: {
-                 ForEach(movieViewModel.movieThings.results, id: \.self) { movie in
-                 VStack(alignment:.center, content: {
-                 AsyncImage(url: movie.posterURL) { image
-                 in image
-                 .resizable()
-                 .aspectRatio(contentMode: .fit)
-                 } placeholder: {
-                 ProgressView()
-                 }
-                 Text(movie.originalTitle ?? movie.originalName ?? "Coming Soon").fontWeight(.bold)
-                 }).padding(.horizontal,10)
-                 }
-                 }).padding(.leading)
-                 })*/
-                //Spacer()
-            })
+                    SnapCarousel(spacing: 20,trailingSpace: 110, index: $currentIndex, items: movieViewModel.movieThings.results){
+                        movie in
+
+                        GeometryReader{proxy in
+                            let size = proxy.size
+
+                            AsyncImage(url: movie.posterURL) { image
+                                in image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width:size.width, height: size.height)
+                                    .cornerRadius(15)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                        }.padding(.top,49)
+                    }
+                    
+                    
+                    //MARK: CATEGORIES
+                    HStack(alignment: .center, spacing:10, content: {
+                        VStack(alignment: .center, content: {
+                            Text("Movies").fontWeight(.bold)
+                            Image("movie").resizable().aspectRatio( contentMode: .fit)
+                                .clipShape(Circle())
+                        })
+                        VStack(alignment: .center, content: {
+                            Text("TV Shows").fontWeight(.bold)
+                            Image("tv").resizable().aspectRatio( contentMode: .fit)
+                                .clipShape(Circle())
+                        })
+                        
+                        VStack(alignment: .center, content: {
+                            Text("People").fontWeight(.bold)
+                            Image("people").resizable().aspectRatio( contentMode: .fit)
+                                .clipShape(Circle())
+                        })
+                    }).frame(height: 150)
+                    
+                })
+            }
         }
     }
     
