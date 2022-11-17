@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @AppStorage("log_status") var log_Status = false
+    @AppStorage("log_status") var log_Status = true
     
     var body: some View {
         if (!log_Status){

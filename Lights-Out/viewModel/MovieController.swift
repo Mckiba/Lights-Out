@@ -6,50 +6,38 @@
 //
 
 import Foundation
-
-
-
 class MovieViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     @Published var movieThings: MovieModel!
     
-    
-    init() {
+    init(){
         getPopularMovies()
     }
     
     func getPopularMovies(){
-        
-        guard let url = URL(string: "https://api.themoviedb.org/3/trending/all/week?api_key=599b0cb2f39931497a62cbf1b2c057c8")
+        isLoading = true
+        let apiKey: String = ProcessInfo.processInfo.environment["TMD_API_KEY"]!
+        guard let url = URL(string: "https://api.themoviedb.org/3/trending/all/day?api_key=\(apiKey)")
         else{
             return
         }
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
-        let json = try! String(contentsOf: url)
-        do{
-            self.movieThings = try MovieModel(json)
-        }catch{
-            print(String(describing: error))
+        let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            }else
+            if let data = data,
+               let trendingMovies = try? JSONDecoder().decode(MovieModel.self, from: data) {
+                DispatchQueue.main.async {
+                    self.movieThings = trendingMovies
+                    self.isLoading = false
+                }
+            }
         }
+        task.resume()
     }
-    //        let task = URLSession.shared.dataTask(with: url) { data, res, error in
-    //
-    //            guard let data = data else {
-    //                print(String(describing: error))
-    //                return
-    //            }
-    //            //print(String(data: data, encoding: .utf8)!)
-    //            do{
-    //                let movies = try JSONDecoder().decode(MovieModel.self, from: data)
-    //                 DispatchQueue.main.async {
-    //
-    //                       print(movies)
-    //                }
-    //             }catch{
-    //                print(String(describing: error))
-    //            }
-    
-    
 }
 
