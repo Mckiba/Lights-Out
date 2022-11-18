@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1B09D1C229189F8B00D6435B /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1B09D1C129189F8B00D6435B /* GoogleSignIn */; };
 		1B09D1C429189F8B00D6435B /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B09D1C329189F8B00D6435B /* GoogleSignInSwift */; };
-		1B0A71D6292075380070B180 /* Upcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71D5292075370070B180 /* Upcoming.swift */; };
 		1B0A71D8292077BF0070B180 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71D7292077BF0070B180 /* Messages.swift */; };
 		1B0A71DA2920CC140070B180 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71D92920CC140070B180 /* MovieModel.swift */; };
 		1B0A71DB2920CC140070B180 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71D92920CC140070B180 /* MovieModel.swift */; };
@@ -22,12 +21,14 @@
 		1B0A71EE29248BEF0070B180 /* OffsetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71EB29248BEE0070B180 /* OffsetModifier.swift */; };
 		1B0A71EF29248BEF0070B180 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71EC29248BEE0070B180 /* SnapCarousel.swift */; };
 		1B0A71F029248BEF0070B180 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71EC29248BEE0070B180 /* SnapCarousel.swift */; };
+		1B0A71F2292714B90070B180 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71F1292714B90070B180 /* APIService.swift */; };
+		1B0A71F3292714B90070B180 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71F1292714B90070B180 /* APIService.swift */; };
 		1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB21286E17F000EDF965 /* ContentView.swift */; };
 		1B1BFB24286E17F200EDF965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB23286E17F200EDF965 /* Assets.xcassets */; };
-		1B1BFB27286E17F200EDF965 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */; };
 		1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB35286E17F200EDF965 /* Wishing_WellTests.swift */; };
 		1B1BFB40286E17F200EDF965 /* Wishing_WellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */; };
 		1B1BFB42286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */; };
+		1B91C0B0292733C900833FDA /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B91C0AF292733C900833FDA /* MovieView.swift */; };
 		1BE6DD552898CE530099C7A1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6DD542898CE530099C7A1 /* Login.swift */; };
 		1BFFF3D329163D4800D0E87F /* loginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3D229163D4800D0E87F /* loginViewModel.swift */; };
 		1BFFF3D429163D4800D0E87F /* loginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFF3D229163D4800D0E87F /* loginViewModel.swift */; };
@@ -69,7 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B0A71D5292075370070B180 /* Upcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upcoming.swift; sourceTree = "<group>"; };
 		1B0A71D7292077BF0070B180 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		1B0A71D92920CC140070B180 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		1B0A71DC2920D0740070B180 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
@@ -77,16 +77,17 @@
 		1B0A71E2292175DB0070B180 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		1B0A71EB29248BEE0070B180 /* OffsetModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetModifier.swift; sourceTree = "<group>"; };
 		1B0A71EC29248BEE0070B180 /* SnapCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
+		1B0A71F1292714B90070B180 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1B1BFB1C286E17F000EDF965 /* Lights-Out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lights-Out.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1BFB21286E17F000EDF965 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B1BFB23286E17F200EDF965 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B1BFB31286E17F200EDF965 /* Lights-OutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lights-OutTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1BFB35286E17F200EDF965 /* Wishing_WellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellTests.swift; sourceTree = "<group>"; };
 		1B1BFB3B286E17F200EDF965 /* Lights-OutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lights-OutUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1BFB3F286E17F200EDF965 /* Wishing_WellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellUITests.swift; sourceTree = "<group>"; };
 		1B1BFB41286E17F200EDF965 /* Wishing_WellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishing_WellUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1B23BB6D289F185B002CFD8A /* Wishing-Well.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wishing-Well.entitlements"; sourceTree = "<group>"; };
+		1B91C0AF292733C900833FDA /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		1BE6DD542898CE530099C7A1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1BFFF3D229163D4800D0E87F /* loginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewModel.swift; sourceTree = "<group>"; };
 		1BFFF3E9291647FE00D0E87F /* AppSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSignIn.swift; sourceTree = "<group>"; };
@@ -164,17 +165,8 @@
 				1BE6DD512898CDD70099C7A1 /* model */,
 				1B1BFB23286E17F200EDF965 /* Assets.xcassets */,
 				1BFFF3F429169C2C00D0E87F /* Resources */,
-				1B1BFB25286E17F200EDF965 /* Preview Content */,
 			);
 			path = "Lights-Out";
-			sourceTree = "<group>";
-		};
-		1B1BFB25286E17F200EDF965 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1B1BFB26286E17F200EDF965 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		1B1BFB34286E17F200EDF965 /* Lights-OutTests */ = {
@@ -211,8 +203,8 @@
 				1B0A71EB29248BEE0070B180 /* OffsetModifier.swift */,
 				1B0A71EC29248BEE0070B180 /* SnapCarousel.swift */,
 				1BFFF40429173D4C00D0E87F /* Home.swift */,
-				1B0A71D5292075370070B180 /* Upcoming.swift */,
 				1B0A71D7292077BF0070B180 /* Messages.swift */,
+				1B91C0AF292733C900833FDA /* MovieView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -223,6 +215,7 @@
 				1BFFF3E9291647FE00D0E87F /* AppSignIn.swift */,
 				1BFFF3D229163D4800D0E87F /* loginViewModel.swift */,
 				1B0A71DC2920D0740070B180 /* MovieController.swift */,
+				1B0A71F1292714B90070B180 /* APIService.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -366,7 +359,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B1BFB27286E17F200EDF965 /* Preview Assets.xcassets in Resources */,
 				1BFFF3F129164B3B00D0E87F /* GoogleService-Info.plist in Resources */,
 				1BFFF3FE2916A0B500D0E87F /* Montserrat-Bold.ttf in Resources */,
 				1BFFF4002916A0EA00D0E87F /* Noteworthy-Bold.ttf in Resources */,
@@ -408,8 +400,9 @@
 				1BFFF40529173D4C00D0E87F /* Home.swift in Sources */,
 				1B0A71D8292077BF0070B180 /* Messages.swift in Sources */,
 				1BFFF4032916A34D00D0E87F /* Color.swift in Sources */,
+				1B91C0B0292733C900833FDA /* MovieView.swift in Sources */,
+				1B0A71F2292714B90070B180 /* APIService.swift in Sources */,
 				1B0A71ED29248BEF0070B180 /* OffsetModifier.swift in Sources */,
-				1B0A71D6292075380070B180 /* Upcoming.swift in Sources */,
 				1B0A71E3292175DB0070B180 /* Movie.swift in Sources */,
 				1B1BFB22286E17F000EDF965 /* ContentView.swift in Sources */,
 			);
@@ -426,6 +419,7 @@
 				1BFFF3D429163D4800D0E87F /* loginViewModel.swift in Sources */,
 				1B0A71EE29248BEF0070B180 /* OffsetModifier.swift in Sources */,
 				1B0A71DB2920CC140070B180 /* MovieModel.swift in Sources */,
+				1B0A71F3292714B90070B180 /* APIService.swift in Sources */,
 				1B1BFB36286E17F200EDF965 /* Wishing_WellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,7 +571,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Lights-Out/Wishing-Well.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Lights-Out/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 7RFQ8P9BJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -608,7 +602,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Lights-Out/Wishing-Well.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Lights-Out/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 7RFQ8P9BJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

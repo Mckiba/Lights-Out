@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct Home: View {
-    @AppStorage("log_status") var log_Status = false
+    @AppStorage("log_status") var log_Status = true
     @State var searchOption = ""
     @StateObject var movieViewModel = MovieViewModel()
  
@@ -60,10 +60,12 @@ struct Home: View {
                 
                     SnapCarousel(spacing: 20,trailingSpace: 110, index: $currentIndex, items: movieViewModel.movieThings.results){
                         movie in
-
                         GeometryReader{proxy in
                             let size = proxy.size
-
+                            
+                            NavigationLink{
+                                MovieView(movie: movie)
+                            }label: {
                             AsyncImage(url: movie.posterURL) { image
                                 in image
                                     .resizable()
@@ -72,7 +74,10 @@ struct Home: View {
                                     .cornerRadius(15)
                             } placeholder: {
                                 ProgressView()
+                            }.onTapGesture{
+                                
                             }
+                        }
                         }.padding(.top,49)
                     }
                     
