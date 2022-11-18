@@ -13,25 +13,25 @@ struct ContentView: View {
     @AppStorage("log_status") var log_Status = true
     
     var body: some View {
-        if (!log_Status){
-            Login()
-        }else {
+//        if (!log_Status){
+//            Login()
+//        }else {
             TabView {
                 Home()
                     .tabItem {
                         Label("", systemImage: "house.fill")
                     }
-                Upcoming()
+                Home()
                     .tabItem {
                         Label("", systemImage: "magnifyingglass")
                     }
-                Upcoming()
+                Home()
                     .tabItem {
                         Label("", systemImage: "calendar")
                     }
             }.edgesIgnoringSafeArea(.vertical).colorScheme(.dark)
         }
-    }
+//    }
 }
 
 

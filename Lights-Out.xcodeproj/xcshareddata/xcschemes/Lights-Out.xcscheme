@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B1BFB30286E17F200EDF965"
-               BuildableName = "Lights-OutTests.xctest"
-               BlueprintName = "Lights-OutTests"
-               ReferencedContainer = "container:Lights-Out.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B1BFB3A286E17F200EDF965"
-               BuildableName = "Lights-OutUITests.xctest"
-               BlueprintName = "Lights-OutUITests"
-               ReferencedContainer = "container:Lights-Out.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -72,7 +52,7 @@
       </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "TMD_API_KEY"
+            key = "TMDB_API_KEY"
             value = "599b0cb2f39931497a62cbf1b2c057c8"
             isEnabled = "YES">
          </EnvironmentVariable>

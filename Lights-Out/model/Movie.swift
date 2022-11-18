@@ -39,6 +39,18 @@ struct Movie: Codable, Hashable, Identifiable {
       }
       
     
+    static func example() -> Movie {
+        
+        return Movie(adult: true, backdropPath: "'/s1xnjbOIQtwGObPnydTebp74G2c.jpg", id: 200, title: "Yaad Man", originalLanguage: "English", originalTitle: "YAAD TALES", overview:"Haunted by her past, a nurse travels from England to a remote Irish village in 1862 to investigate a young girl's supposedly miraculous fast.",
+                     posterPath: "/npBvD1rRQHYGrxuwr2OrzXLso1w.jpg", mediaType: MediaType(rawValue: "movie")!, genreIDS: [
+                        9648,
+                        53
+                     ], popularity: 34.076, releaseDate: "2008", video: false, voteAverage: 7.128, voteCount: 90, name: "Yaad Man" , originalName: "Yaad Man", firstAirDate: "2009", originCountry: ["Jamaica"])
+                      
+        
+        
+    }
+    
     enum CodingKeys: String, CodingKey {
         case adult = "adult"
         case backdropPath = "backdrop_path"
@@ -60,80 +72,13 @@ struct Movie: Codable, Hashable, Identifiable {
         case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
     }
-}
+    
 
-// MARK: Result convenience initializers and mutators
-
-extension Movie {
-    init(data: Data) throws {
-        self = try newJSONDecoder().decode(Movie.self, from: data)
-    }
-
-    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
-        guard let data = json.data(using: encoding) else {
-            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
-        }
-        try self.init(data: data)
-    }
-
-    init(fromURL url: URL) throws {
-        try self.init(data: try Data(contentsOf: url))
-    }
-
-    func with(
-        adult: Bool? = nil,
-        backdropPath: String? = nil,
-        id: Int? = nil,
-        title: String?? = nil,
-        originalLanguage: String? = nil,
-        originalTitle: String?? = nil,
-        overview: String? = nil,
-        posterPath: String? = nil,
-        mediaType: MediaType? = nil,
-        genreIDS: [Int]? = nil,
-        popularity: Double? = nil,
-        releaseDate: String?? = nil,
-        video: Bool?? = nil,
-        voteAverage: Double? = nil,
-        voteCount: Int? = nil,
-        name: String?? = nil,
-        originalName: String?? = nil,
-        firstAirDate: String?? = nil,
-        originCountry: [String]?? = nil
-    ) -> Movie {
-        return Movie(
-            adult: adult ?? self.adult,
-            backdropPath: backdropPath ?? self.backdropPath,
-            id: id ?? self.id,
-            title: title ?? self.title,
-            originalLanguage: originalLanguage ?? self.originalLanguage,
-            originalTitle: originalTitle ?? self.originalTitle,
-            overview: overview ?? self.overview,
-            posterPath: posterPath ?? self.posterPath,
-            mediaType: mediaType ?? self.mediaType,
-            genreIDS: genreIDS ?? self.genreIDS,
-            popularity: popularity ?? self.popularity,
-            releaseDate: releaseDate ?? self.releaseDate,
-            video: video ?? self.video,
-            voteAverage: voteAverage ?? self.voteAverage,
-            voteCount: voteCount ?? self.voteCount,
-            name: name ?? self.name,
-            originalName: originalName ?? self.originalName,
-            firstAirDate: firstAirDate ?? self.firstAirDate,
-            originCountry: originCountry ?? self.originCountry
-        )
-    }
-
-    func jsonData() throws -> Data {
-        return try newJSONEncoder().encode(self)
-    }
-
-    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return String(data: try self.jsonData(), encoding: encoding)
-    }
+    
 }
 
 enum MediaType: String, Codable, Hashable {
     case movie = "movie"
     case tv = "tv"
 }
+
