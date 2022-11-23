@@ -58,19 +58,13 @@ struct SnapCarousel<Content: View,T: Identifiable>: View {
             
                 DragGesture()
                     .updating($offset, body: { value, out, _ in
-                        
-                        // Making it little bit slower
-                        out = (value.translation.width / 1.5)
+                         out = (value.translation.width / 1.5)
                     })
                     .onEnded({ value in
                         
                         // Updating Current Index....
                         let offsetX = value.translation.width
-                        
-                  
-                        
                         let progress = -offsetX / width
-                        
                         let roundIndex = progress.rounded()
                         
                         // setting min...

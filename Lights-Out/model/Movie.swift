@@ -32,23 +32,20 @@ struct Movie: Codable, Hashable, Identifiable {
     
     var backdropURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath )")!
-      }
-      
-      var posterURL: URL {
-          return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath )")!
-      }
-      
+    }
+    
+    var posterURL: URL {
+        return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath )")!
+    }
+    
     
     static func example() -> Movie {
         
-        return Movie(adult: true, backdropPath: "'/s1xnjbOIQtwGObPnydTebp74G2c.jpg", id: 200, title: "Yaad Man", originalLanguage: "English", originalTitle: "YAAD TALES", overview:"Haunted by her past, a nurse travels from England to a remote Irish village in 1862 to investigate a young girl's supposedly miraculous fast.",
-                     posterPath: "/npBvD1rRQHYGrxuwr2OrzXLso1w.jpg", mediaType: MediaType(rawValue: "movie")!, genreIDS: [
+        return Movie(adult: true, backdropPath: "/s1xnjbOIQtwGObPnydTebp74G2c.jpg", id: 200, title: nil, originalLanguage: "English", originalTitle: nil, overview:"Passengers on an immigrant ship traveling to the new continent get caught in a mysterious riddle when they find a second vessel adrift on the open sea.",
+                     posterPath: "/2QK8tIXafyiz93PvAbKxxfK2BLb.jpg", mediaType: MediaType(rawValue: "movie")!, genreIDS: [
                         9648,
-                        53
-                     ], popularity: 34.076, releaseDate: "2008", video: false, voteAverage: 7.128, voteCount: 90, name: "Yaad Man" , originalName: "Yaad Man", firstAirDate: "2009", originCountry: ["Jamaica"])
-                      
-        
-        
+                        18
+                     ], popularity: 34.076, releaseDate: nil, video: false, voteAverage: 7.128, voteCount: 90, name: "1899" , originalName: "1899", firstAirDate: "2022-11-17", originCountry: ["DE"])
     }
     
     enum CodingKeys: String, CodingKey {
@@ -72,9 +69,6 @@ struct Movie: Codable, Hashable, Identifiable {
         case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
     }
-    
-
-    
 }
 
 enum MediaType: String, Codable, Hashable {

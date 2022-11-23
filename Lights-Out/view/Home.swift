@@ -16,7 +16,6 @@ struct Home: View {
     //MARK: Animated view properties
     @State var currentIndex: Int = 0
     
-    
     //MARK: Environment variables
     @Environment(\.colorScheme ) var scheme
     var body: some View {
@@ -34,7 +33,7 @@ struct Home: View {
                             .font(.largeTitle)
                         Spacer()
                         Button(action: {
-                            DispatchQueue.global(qos:                                           .background).async {
+                            DispatchQueue.global(qos:                                       .background).async {
                                 try? Auth.auth().signOut()
                             }
                             withAnimation(.easeInOut){
@@ -56,30 +55,21 @@ struct Home: View {
                         .background(Color.themeGray)
                         .clipShape(RoundedRectangle(cornerRadius: 20)).padding(.horizontal)
                     
-                    
-                
                     SnapCarousel(spacing: 20,trailingSpace: 110, index: $currentIndex, items: movieViewModel.movieThings.results){
                         movie in
-                        GeometryReader{proxy in
+                         GeometryReader{proxy in
                             let size = proxy.size
-                            
-                            NavigationLink{
-                                MovieView(movie: movie)
-                            }label: {
-                            AsyncImage(url: movie.posterURL) { image
-                                in image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width:size.width, height: size.height)
-                                    .cornerRadius(15)
-                            } placeholder: {
-                                ProgressView()
-                            }.onTapGesture{
-                                
-                            }
-                        }
-                        }.padding(.top,49)
-                    }
+                                AsyncImage(url: movie.posterURL) { image
+                                    in image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width:size.width, height: size.height)
+                                        .cornerRadius(15)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                            }.padding(.top,49)
+                     }
                     
                     
                     //MARK: CATEGORIES
@@ -113,19 +103,13 @@ struct Home: View {
             let size = proxy.size
             
             TabView(selection: $currentIndex){
-                ForEach(movieViewModel.movieThings.results, id: \.self) { movie in
-                    AsyncImage(url: movie.posterURL) { image
-                        in image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width:size.width, height: size.height)
-                            .clipped()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                }
+                Image("homeBg")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width:size.width, height: size.height)
+                .clipped()
             }
-            
+        
             //MARK: Custom Gradient
             let color : Color = (scheme == .dark ? .black : .white)
             LinearGradient(colors:[
