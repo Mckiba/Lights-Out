@@ -18,23 +18,24 @@ struct MovieView: View {
             BGView()
             ScrollView{
                 VStack{
+                    
                     AsyncImage(url: movie.posterURL) { image
                         in image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: .infinity, height: 400)
+                            .aspectRatio(contentMode: .fill)
                             .clipped()
                     } placeholder: {
                         ProgressView()
                     }
-                    Spacer()
+                    
+                    
+                    //MARK: TITLE
                     HStack {
                         Text(movie.name!).font(.title).fontWeight(.bold)
                         Text("("+(String((movie.releaseDate ?? movie.firstAirDate)!.prefix(4)))+")").font(.title2)
-                    }.padding(.vertical)
-                    Text(movie.overview).font(.body).padding(.horizontal)
+                    }
                     
-                    
+                    //MARK: GENRES
                     HStack(content: {
                         ForEach(genres, id:\.self) { genre in
                             Text(genre)
@@ -47,10 +48,13 @@ struct MovieView: View {
                                     Color.black
                                 }.clipShape(Capsule())
                         }
-                    }).padding(.top)
+                    })
+                    
+                    //MARK: OVERVIEW
+                    Text(movie.overview).font(.body).padding(.horizontal).padding(.top)
                 }
             }
-        }
+        }.ignoresSafeArea()
     }
     
     @ViewBuilder
@@ -59,7 +63,7 @@ struct MovieView: View {
             let size = proxy.size
             
             TabView(){
-                AsyncImage(url: movie.posterURL) { image
+                AsyncImage(url: movie.backdropURL) { image
                     in image
                         .resizable()
                         .aspectRatio(contentMode: .fill)

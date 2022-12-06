@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @AppStorage("log_status") var log_Status = true
+    @AppStorage("log_status") var log_Status = false
     
     var body: some View {
 //        if (!log_Status){
@@ -30,8 +30,8 @@ struct ContentView: View {
                         Label("", systemImage: "calendar")
                     }
             }.edgesIgnoringSafeArea(.vertical).colorScheme(.dark)
-        }
-//    }
+//        }
+    }
 }
 
 

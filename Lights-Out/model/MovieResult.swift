@@ -12,7 +12,7 @@
 import Foundation
 
 // MARK: - MovieModel
-struct MovieModel: Codable, Hashable {
+struct MovieResults: Codable, Hashable {
     let page: Int
     let results: [Movie]
     let totalPages: Int

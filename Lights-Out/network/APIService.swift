@@ -23,19 +23,18 @@ struct APIService {
             if let data = data{
                 do{
                     let result = try JSONDecoder().decode(type.self, from: data)
-//                    DispatchQueue.main.async {
-                        onCompletion(Result.success(result))
-//                    }
-                }catch {
-                    onCompletion(Result.failure(error.localizedDescription as! Error))
+                         onCompletion(Result.success(result))
+                 }catch {
+                     onCompletion(Result.failure(APIError.parsing(error as? DecodingError)))
                 }
             }
         }
         task.resume()
     }
     
+
     
-    func fetchPopularMovies(url: URL?, onCompletion: @escaping(Result<MovieModel, Error>) -> Void) {
+    func fetchPopularMovies(url: URL?, onCompletion: @escaping(Result<MovieResults, Error>) -> Void) {
         guard let url = url else{ return}
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -46,12 +45,10 @@ struct APIService {
             }else
             if let data = data{
                 do{
-                    let trendingMovies = try JSONDecoder().decode(MovieModel.self, from: data)
-//                    DispatchQueue.main.async {
-                        onCompletion(Result.success(trendingMovies))
-//                    }
-                }catch {
-                    onCompletion(Result.failure(error.localizedDescription as! Error))
+                    let trendingMovies = try JSONDecoder().decode(MovieResults.self, from: data)
+                         onCompletion(Result.success(trendingMovies))
+                 }catch {
+                     onCompletion(Result.failure(APIError.parsing(error as? DecodingError)))
                 }
             }
         }

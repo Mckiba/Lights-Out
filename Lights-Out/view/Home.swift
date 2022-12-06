@@ -12,6 +12,9 @@ struct Home: View {
     @AppStorage("log_status") var log_Status = true
     @State var searchOption = ""
     @StateObject var movieViewModel = MovieViewModel()
+    @State var pushView = false
+ 
+
  
     //MARK: Animated view properties
     @State var currentIndex: Int = 0
@@ -19,80 +22,93 @@ struct Home: View {
     //MARK: Environment variables
     @Environment(\.colorScheme ) var scheme
     var body: some View {
-        
-        if movieViewModel.isLoading {
-            ProgressView()
-        } else {
-            
-            ZStack{
-                BGView()
-                VStack(alignment: .center,content: {
-                    
-                    HStack(content: {
-                        Text("Hi Alvin").fontWeight(.bold)
-                            .font(.largeTitle)
-                        Spacer()
-                        Button(action: {
-                            DispatchQueue.global(qos:                                       .background).async {
-                                try? Auth.auth().signOut()
-                            }
-                            withAnimation(.easeInOut){
-                                log_Status = false
-                            }
-                        }, label: {
-                            Image(systemName: "person.crop.circle.fill").frame(height: 30)
-                                .font(.system(size: 35))
-                        })
-                    }).padding(.horizontal)
-                    
-                    //MARK: SEARCH
-                    HStack{
-                        Text("Search")
-                        Spacer()
-                        Image(systemName: "magnifyingglass")
+        NavigationView {
+            if movieViewModel.isLoading {
+                ProgressView()
+            } else {
+                
+                ZStack{
+                    BGView()
+                    VStack(alignment: .center,content: {
                         
-                    }.frame(height:8).padding()
-                        .background(Color.themeGray)
-                        .clipShape(RoundedRectangle(cornerRadius: 20)).padding(.horizontal)
-                    
-                    SnapCarousel(spacing: 20,trailingSpace: 110, index: $currentIndex, items: movieViewModel.movieThings.results){
-                        movie in
-                         GeometryReader{proxy in
-                            let size = proxy.size
-                                AsyncImage(url: movie.posterURL) { image
-                                    in image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width:size.width, height: size.height)
-                                        .cornerRadius(15)
-                                } placeholder: {
-                                    ProgressView()
+                        HStack(content: {
+                            Text("Hi Alvin").fontWeight(.bold)
+                                .font(.largeTitle)
+                            Spacer()
+                            Button(action: {
+                                DispatchQueue.global(qos: .background).async {
+                                    try? Auth.auth().signOut()
                                 }
-                            }.padding(.top,49)
-                     }
-                    
-                    
-                    //MARK: CATEGORIES
-                    HStack(alignment: .center, spacing:10, content: {
-                        VStack(alignment: .center, content: {
-                            Text("Movies").fontWeight(.bold)
-                            Image("movie").resizable().aspectRatio( contentMode: .fit)
-                                .clipShape(Circle())
-                        })
-                        VStack(alignment: .center, content: {
-                            Text("TV Shows").fontWeight(.bold)
-                            Image("tv").resizable().aspectRatio( contentMode: .fit)
-                                .clipShape(Circle())
-                        })
+                                withAnimation(.easeInOut){
+                                    log_Status = false
+                                }
+                            }, label: {
+                                Image(systemName: "person.crop.circle.fill").frame(height: 30)
+                                    .font(.system(size: 35))
+                            })
+                        }).padding(.horizontal)
                         
-                        VStack(alignment: .center, content: {
-                            Text("People").fontWeight(.bold)
-                            Image("people").resizable().aspectRatio( contentMode: .fit)
-                                .clipShape(Circle())
-                        })
-                    }).frame(height: 150)
-                    
-                })
+                        //MARK: SEARCH
+                        HStack{
+                            Text("Search")
+                            Spacer()
+                            Image(systemName: "magnifyingglass")
+                            
+                        }.frame(height:8).padding()
+                            .background(Color.themeGray)
+                            .clipShape(RoundedRectangle(cornerRadius: 20)).padding(.horizontal)
+                        
+                        HStack{
+ 
+                   
+                                SnapCarousel(spacing: 20,trailingSpace: 110, index: $currentIndex, items: movieViewModel.movieThings.results){
+                                    
+                                    movie in
+                                    GeometryReader{proxy in
+                                        let size = proxy.size
+                                        AsyncImage(url: movie.posterURL) { image
+                                            in image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width:size.width, height: size.height)
+                                                .cornerRadius(15)
+                                        } placeholder: {
+                                            ProgressView()
+                                        }.onTapGesture {
+                                            movieViewModel.getMovie(movie_id: movie.id)
+                                        }
+                                        
+                                        
+                                        
+                                        
+                                    }.padding(.top,49)
+                                
+                             }
+                          }
+                        
+                        
+                        //MARK: CATEGORIES
+                        HStack(alignment: .center, spacing:10, content: {
+                            VStack(alignment: .center, content: {
+                                Text("Movies").fontWeight(.bold).font(.subheadline)
+                                Image("movie").resizable().aspectRatio( contentMode: .fit)
+                                    .clipShape(Circle())
+                            })
+                            VStack(alignment: .center, content: {
+                                Text("TV Shows").fontWeight(.bold).font(.subheadline)
+                                Image("tv").resizable().aspectRatio( contentMode: .fit)
+                                    .clipShape(Circle())
+                            })
+                            
+                            VStack(alignment: .center, content: {
+                                Text("People").fontWeight(.bold).font(.subheadline)
+                                Image("people").resizable().aspectRatio( contentMode: .fit)
+                                    .clipShape(Circle())
+                            })
+                        }).frame(height: 140)
+                        
+                    })
+                }
             }
         }
     }

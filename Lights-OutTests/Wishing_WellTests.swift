@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Wishing_Well
+@testable import Lights_Out
 
 class Wishing_WellTests: XCTestCase {
 
