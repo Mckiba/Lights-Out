@@ -18,8 +18,7 @@ struct Movie: Codable, Hashable, Identifiable {
     let originalTitle: String?
     let overview: String
     let posterPath: String
-    let mediaType: MediaType
-    let genreIDS: [Int]
+     let genreIDS: [Int]?
     let popularity: Double
     let releaseDate: String?
     let video: Bool?
@@ -29,26 +28,70 @@ struct Movie: Codable, Hashable, Identifiable {
     let originalName: String?
     let firstAirDate: String?
     let originCountry: [String]?
+    let genres: [Genre]?
+    let videos: Videos?
+
+
     
     var backdropURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath )")!
-      }
-      
-      var posterURL: URL {
-          return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath )")!
-      }
-      
+    }
+    
+    var posterURL: URL {
+        return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath )")!
+    }
+    
+    struct Genre: Codable, Hashable {
+        let id: Int
+        let name: String
+
+        enum CodingKeys: String, CodingKey {
+            case id = "id"
+            case name = "name"
+        }
+    }
+    
+    struct Videos: Codable, Hashable {
+        let results: [Result]
+
+        enum CodingKeys: String, CodingKey {
+            case results = "results"
+        }
+    }
+    
+    struct Result: Codable, Hashable {
+        let iso639_1: String
+        let iso3166_1: String
+        let name: String
+        let key: String
+        let site: String
+        let size: Int
+        let type: String
+        let official: Bool
+        let publishedAt: String
+        let id: String
+
+        enum CodingKeys: String, CodingKey {
+            case iso639_1 = "iso_639_1"
+            case iso3166_1 = "iso_3166_1"
+            case name = "name"
+            case key = "key"
+            case site = "site"
+            case size = "size"
+            case type = "type"
+            case official = "official"
+            case publishedAt = "published_at"
+            case id = "id"
+        }
+    }
     
     static func example() -> Movie {
-        
-        return Movie(adult: true, backdropPath: "'/s1xnjbOIQtwGObPnydTebp74G2c.jpg", id: 200, title: "Yaad Man", originalLanguage: "English", originalTitle: "YAAD TALES", overview:"Haunted by her past, a nurse travels from England to a remote Irish village in 1862 to investigate a young girl's supposedly miraculous fast.",
-                     posterPath: "/npBvD1rRQHYGrxuwr2OrzXLso1w.jpg", mediaType: MediaType(rawValue: "movie")!, genreIDS: [
+
+        return Movie(adult: true, backdropPath: "/duIsyybgrC4S8kcCIVaxNOttV15.jpg" , id: 200, title: "Troll", originalLanguage: "English", originalTitle: "Troll", overview:"Deep inside the mountain of Dovre, something gigantic awakens after being trapped for a thousand years. Destroying everything in its path, the creature is fast approaching the capital of Norway. But how do you stop something you thought only existed in Norwegian folklore?",
+                     posterPath: "/9z4jRr43JdtU66P0iy8h18OyLql.jpg",  genreIDS: [
                         9648,
-                        53
-                     ], popularity: 34.076, releaseDate: "2008", video: false, voteAverage: 7.128, voteCount: 90, name: "Yaad Man" , originalName: "Yaad Man", firstAirDate: "2009", originCountry: ["Jamaica"])
-                      
-        
-        
+                        18
+                     ], popularity: 34.076, releaseDate: nil, video: false, voteAverage: 7.128, voteCount: 90, name: "Troll" , originalName: "Troll", firstAirDate: "2022-11-17", originCountry: ["DE"], genres: nil, videos: nil)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -56,12 +99,12 @@ struct Movie: Codable, Hashable, Identifiable {
         case backdropPath = "backdrop_path"
         case id = "id"
         case title = "title"
+        case genres = "genres"
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
         case overview = "overview"
         case posterPath = "poster_path"
-        case mediaType = "media_type"
-        case genreIDS = "genre_ids"
+         case genreIDS = "genre_ids"
         case popularity = "popularity"
         case releaseDate = "release_date"
         case video = "video"
@@ -71,14 +114,11 @@ struct Movie: Codable, Hashable, Identifiable {
         case originalName = "original_name"
         case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
+        case videos = "videos"
     }
-    
-
-    
 }
 
 enum MediaType: String, Codable, Hashable {
     case movie = "movie"
     case tv = "tv"
 }
-

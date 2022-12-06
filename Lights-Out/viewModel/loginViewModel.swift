@@ -61,7 +61,7 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-        
+         
         func authenticate(credential: ASAuthorizationAppleIDCredential ){
             
             guard let token = credential.identityToken else {
