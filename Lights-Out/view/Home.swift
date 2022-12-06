@@ -58,33 +58,50 @@ struct Home: View {
                             .background(Color.themeGray)
                             .clipShape(RoundedRectangle(cornerRadius: 20)).padding(.horizontal)
                         
-                        HStack{
- 
-                   
-                                SnapCarousel(spacing: 20,trailingSpace: 110, index: $currentIndex, items: movieViewModel.movieThings.results){
-                                    
-                                    movie in
-                                    GeometryReader{proxy in
-                                        let size = proxy.size
+                        ScrollView(.horizontal){
+                            
+                            HStack{
+                                ForEach(movieViewModel.movieThings.results, id: \.id){ movie in
+                                    NavigationLink(destination: MovieView(movie: movie)){
                                         AsyncImage(url: movie.posterURL) { image
                                             in image
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
-                                                .frame(width:size.width, height: size.height)
+                                            //.frame(width:size.width, height: size.height)
                                                 .cornerRadius(15)
                                         } placeholder: {
                                             ProgressView()
-                                        }.onTapGesture {
-                                            movieViewModel.getMovie(movie_id: movie.id)
-                                        }
-                                        
-                                        
-                                        
-                                        
-                                    }.padding(.top,49)
-                                
-                             }
-                          }
+                                            
+                                        }.padding(.horizontal)
+                                    }
+                                }
+                            }
+                        }
+                   
+//                                SnapCarousel(spacing: 20,trailingSpace: 110, index: $currentIndex, items: movieViewModel.movieThings.results){
+//
+//                                    movie in
+//                                    GeometryReader{proxy in
+//                                        let size = proxy.size
+//                                        AsyncImage(url: movie.posterURL) { image
+//                                            in image
+//                                                .resizable()
+//                                                .aspectRatio(contentMode: .fill)
+//                                                .frame(width:size.width, height: size.height)
+//                                                .cornerRadius(15)
+//                                        } placeholder: {
+//                                            ProgressView()
+//                                        }.onTapGesture {
+//                                            movieViewModel.getMovie(movie_id: movie.id)
+//                                        }
+//
+//
+//
+//
+//                                    }.padding(.top,49)
+//
+//                             }
+                          
                         
                         
                         //MARK: CATEGORIES
