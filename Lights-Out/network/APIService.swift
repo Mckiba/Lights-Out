@@ -10,27 +10,49 @@ struct APIService {
     
     
     
-    
     func fetch<T: Decodable>(_ type: T.Type, url: URL?, onCompletion: @escaping(Result<T, Error>) -> Void ){
         guard let url = url else{return}
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData)
+
+        // Create a URLCache instance with a memory capacity of 4MB and a disk capacity of 20MB
+        let cache = URLCache(memoryCapacity: 4 * 1024 * 1024, diskCapacity: 20 * 1024 * 1024, diskPath: nil)
+
+        // Use the URLCache instance to create a request
+        let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 60.0)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        
-        let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            }else
-            if let data = data{
-                do{
+
+        // Check the cache for a stored response to the request
+        if let cachedResponse = cache.cachedResponse(for: request) {
+            // If there is a stored response, create a result from the data and return it
+            do{
+                let result = try JSONDecoder().decode(type.self, from: cachedResponse.data)
+                onCompletion(Result.success(result))
+            }catch{
+                onCompletion(Result.failure(APIError.parsing(error as? DecodingError)))
+            }
+        } else {
+            // If there is no stored response, make a network request
+            let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if let data = data {
+                    // If the request is successful, store the response data in the cache
+                    let cachedData = CachedURLResponse(response: response!, data: data)
+                    cache.storeCachedResponse(cachedData, for: request)
+
+                    // Create a result from the response data and return it
+                    do{
+
                     let result = try JSONDecoder().decode(type.self, from: data)
-                         onCompletion(Result.success(result))
-                 }catch {
-                     onCompletion(Result.failure(APIError.parsing(error as? DecodingError)))
+                    onCompletion(Result.success(result))
+                    }catch {
+                        onCompletion(Result.failure(APIError.parsing(error as? DecodingError)))
+                   }
                 }
             }
+            task.resume()
         }
-        task.resume()
     }
+
     
 
     

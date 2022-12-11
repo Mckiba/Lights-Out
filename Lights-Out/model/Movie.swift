@@ -21,6 +21,7 @@ struct Movie: Codable, Hashable, Identifiable {
      let genreIDS: [Int]?
     let popularity: Double
     let releaseDate: String?
+    let runtime: Int?
     let video: Bool?
     let voteAverage: Double
     let voteCount: Int
@@ -91,7 +92,7 @@ struct Movie: Codable, Hashable, Identifiable {
                      posterPath: "/9z4jRr43JdtU66P0iy8h18OyLql.jpg",  genreIDS: [
                         9648,
                         18
-                     ], popularity: 34.076, releaseDate: nil, video: false, voteAverage: 7.128, voteCount: 90, name: "Troll" , originalName: "Troll", firstAirDate: "2022-11-17", originCountry: ["DE"], genres: nil, videos: nil)
+                     ], popularity: 34.076, releaseDate: nil, runtime: 125, video: false, voteAverage: 7.128, voteCount: 90, name: "Troll" , originalName: "Troll", firstAirDate: "2022-11-17", originCountry: ["DE"], genres: nil, videos: nil)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -107,6 +108,7 @@ struct Movie: Codable, Hashable, Identifiable {
          case genreIDS = "genre_ids"
         case popularity = "popularity"
         case releaseDate = "release_date"
+        case runtime = "runtime"
         case video = "video"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"

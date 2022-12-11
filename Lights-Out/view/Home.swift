@@ -15,7 +15,6 @@ struct Home: View {
     @State var pushView = false
  
 
- 
     //MARK: Animated view properties
     @State var currentIndex: Int = 0
     
@@ -58,8 +57,8 @@ struct Home: View {
                             .background(Color.themeGray)
                             .clipShape(RoundedRectangle(cornerRadius: 20)).padding(.horizontal)
                         
-                        ScrollView(.horizontal){
-                            
+                        ScrollView(.horizontal,showsIndicators: false){
+
                             HStack{
                                 ForEach(movieViewModel.movieThings.results, id: \.id){ movie in
                                     NavigationLink(destination: MovieView(movie: movie)){
@@ -67,43 +66,16 @@ struct Home: View {
                                             in image
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
-                                            //.frame(width:size.width, height: size.height)
                                                 .cornerRadius(15)
                                         } placeholder: {
                                             ProgressView()
-                                            
+
                                         }.padding(.horizontal)
                                     }
                                 }
                             }
                         }
-                   
-//                                SnapCarousel(spacing: 20,trailingSpace: 110, index: $currentIndex, items: movieViewModel.movieThings.results){
-//
-//                                    movie in
-//                                    GeometryReader{proxy in
-//                                        let size = proxy.size
-//                                        AsyncImage(url: movie.posterURL) { image
-//                                            in image
-//                                                .resizable()
-//                                                .aspectRatio(contentMode: .fill)
-//                                                .frame(width:size.width, height: size.height)
-//                                                .cornerRadius(15)
-//                                        } placeholder: {
-//                                            ProgressView()
-//                                        }.onTapGesture {
-//                                            movieViewModel.getMovie(movie_id: movie.id)
-//                                        }
-//
-//
-//
-//
-//                                    }.padding(.top,49)
-//
-//                             }
-                          
-                        
-                        
+                                                       
                         //MARK: CATEGORIES
                         HStack(alignment: .center, spacing:10, content: {
                             VStack(alignment: .center, content: {
@@ -165,6 +137,6 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().preferredColorScheme(.dark)
     }
 }

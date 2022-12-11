@@ -10,69 +10,63 @@ import SwiftUI
 struct MovieView: View {
     var movie : Movie
     @State var movieViewModel = MovieViewModel()
-
- 
+    
+    
     @Environment(\.colorScheme ) var scheme
     
     let genres: [String] = ["Action", "Romance", "Love"]
     
     init(movie: Movie) {
-         // Initialize the movie property with the value of the parameter
-         self.movie = movie
-
-         // Now you can safely use the movie property
-         let movieViewModel = MovieViewModel()
-         movieViewModel.getMovie(movie_id: movie.id)
-        //self.movie = movieViewModel.selectedMovie!
-     }
+        // Initialize the movie property with the value of the parameter
+        self.movie = movie
+        
+        let movieViewModel = MovieViewModel()
+        movieViewModel.getMovie(movie_id: movie.id)
+    }
     
     
     var body: some View {
         ZStack{
-      
-                
-                BGView()
-                ScrollView{
-                    VStack{
-                        
-                        AsyncImage(url: movie.posterURL) { image
-                            in image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .clipped()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        
-                        
-                        //MARK: TITLE
-                        HStack {
-                            Text(String((movie.name ?? movie.title)!)  ).font(.title).fontWeight(.bold)
-                            Text("("+(String((movie.releaseDate ?? movie.firstAirDate)!.prefix(4)))+")").font(.title2)
-                        }
-                        
-                        //MARK: GENRES
-                        HStack(content: {
-                            ForEach(genres, id:\.self) { genre in
-                                Text(genre)
-                                    .font(.body)
-                                    .fontWeight(.semibold)
-                                    .padding()
-                                    .foregroundColor(Color.themeGray)
-                                    .frame(width: 120, height: 30, alignment: .center)
-                                    .background{
-                                        Color.black
-                                    }.clipShape(Capsule())
-                            }
-                        })
-                        
-                        //MARK: OVERVIEW
-                        Text(movie.overview).font(.body).padding(.horizontal).padding(.top)
-                    }
+            VStack {
+                AsyncImage(url: movie.backdropURL) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipped()
+                } placeholder: {
+                    ProgressView()
                 }
-            
-            }.ignoresSafeArea()
-        
+                
+                Text((movie.originalName ?? movie.title)!).font(.largeTitle)
+                HStack{
+                    Text((String((movie.releaseDate ?? movie.firstAirDate)!.prefix(4))))
+                    Image(systemName: "circle.fill").font(.system(size:8))
+                    
+                    ForEach(genres, id:\.self) { genre in
+                        Text(genre+",")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                    }
+                    Image(systemName: "circle.fill").font(.system(size:8))
+                    Text("\(movie.runtime!/60 )h")
+                    
+                }
+                
+                StarFill(rating: Int(movie.voteAverage)).padding(.vertical)
+                
+                VStack(alignment: .leading, content: {
+                    
+                    Text("Plot Summary").padding().font(.title2)
+                    Text(movie.overview).font(.body).padding()
+                    
+                    Text("Cast").padding().font(.title2 )
+                    
+                })
+                
+                
+                
+            }
+        }
     }
     
     @ViewBuilder
@@ -81,7 +75,7 @@ struct MovieView: View {
             let size = proxy.size
             
             TabView(){
-                AsyncImage(url: movie.backdropURL) { image
+                AsyncImage(url: movie.posterURL) { image
                     in image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -111,8 +105,8 @@ struct MovieView: View {
     }
 }
 
-//struct MovieView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MovieView(movie: Movie.example()).preferredColorScheme(.dark)
-//    }
-//}
+struct MovieView_Previews: PreviewProvider {
+    static var previews: some View {
+        MovieView(movie: Movie.example()).preferredColorScheme(.dark)
+    }
+}
