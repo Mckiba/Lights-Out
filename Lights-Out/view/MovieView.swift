@@ -9,65 +9,102 @@ import SwiftUI
 
 struct MovieView: View {
     var movie : Movie
-    @State var movieViewModel = MovieViewModel()
-    
-    
+    @ObservedObject var movieViewModel = MovieViewModel()
     @Environment(\.colorScheme ) var scheme
     
     let genres: [String] = ["Action", "Romance", "Love"]
-    
     init(movie: Movie) {
         // Initialize the movie property with the value of the parameter
         self.movie = movie
-        
-        let movieViewModel = MovieViewModel()
         movieViewModel.getMovie(movie_id: movie.id)
+        //movieViewModel.getCasting(movie_id: movie.id)
     }
+    
+    func loadJson() -> [Cast]? {
+        let url = Bundle.main.url(forResource: "CastData", withExtension: "JSON")
+        do {
+            let data = try Data(contentsOf: url!)
+            let decoder = JSONDecoder()
+            let jsonData = try decoder.decode([Cast].self, from: data)
+            return jsonData
+        } catch {
+            print("error:\(error)")
+        }
+        return nil
+    }
+    
     
     
     var body: some View {
         ZStack{
-            VStack {
-                AsyncImage(url: movie.backdropURL) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .clipped()
-                } placeholder: {
-                    ProgressView()
-                }
+            BGView()
+            
+            
+            ScrollView(.vertical){
                 
-                Text((movie.originalName ?? movie.title)!).font(.largeTitle)
-                HStack{
-                    Text((String((movie.releaseDate ?? movie.firstAirDate)!.prefix(4))))
-                    Image(systemName: "circle.fill").font(.system(size:8))
+                VStack {
                     
-                    ForEach(genres, id:\.self) { genre in
-                        Text(genre+",")
-                            .font(.body)
-                            .fontWeight(.semibold)
+                    Text((movie.originalName ?? movie.title)!).font(.largeTitle)
+                    HStack{
+                        Text((String((movie.releaseDate ?? movie.firstAirDate)!.prefix(4))))
+                        Image(systemName: "circle.fill").font(.system(size:8))
+                        
+                        ForEach(genres, id:\.self) { genre in
+                            Text(genre+",")
+                                .font(.body)
+                                .fontWeight(.semibold)
+                        }
+                        Image(systemName: "circle.fill").font(.system(size:8))
+                        //                        Text("\((movieViewModel.selectedMovie?.runtime!)!/60 )h")
+                        Text("2022") //debug
+                        
                     }
-                    Image(systemName: "circle.fill").font(.system(size:8))
-                    Text("\(movie.runtime!/60 )h")
+                    
+                    StarFill(rating: Int(movie.voteAverage)).padding(.vertical)
+                    
+                    VStack(alignment: .leading, content: {
+                        
+                        Text("Plot Summary").padding().font(.headline)
+                        Text(movie.overview).font(.body).padding(.horizontal)
+                        
+                        Text("Cast").padding().font(.headline)
+                        
+                        ScrollView(.horizontal, showsIndicators: false){
+                            HStack{
+                                
+                                ForEach(loadJson()!, id:\.id) { cast in
+                                    
+                                    VStack {
+                                        AsyncImage(url: cast.profileURL) { image
+                                            in image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 80, height: 80)
+                                                .clipShape(Circle())
+                                            
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        Text(cast.name).font(.system(size: 13))
+                                        Text(cast.character ?? cast.name).font(.subheadline)
+                                        
+                                        
+                                    }
+                                }.padding(.trailing)
+                                
+                                
+                            }
+                        }.padding(.horizontal)
+                        
+                    })
+                    
                     
                 }
-                
-                StarFill(rating: Int(movie.voteAverage)).padding(.vertical)
-                
-                VStack(alignment: .leading, content: {
-                    
-                    Text("Plot Summary").padding().font(.title2)
-                    Text(movie.overview).font(.body).padding()
-                    
-                    Text("Cast").padding().font(.title2 )
-                    
-                })
-                
-                
-                
             }
+            .offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 200.0)
         }
     }
+    
     
     @ViewBuilder
     func BGView()->some View{
@@ -75,6 +112,8 @@ struct MovieView: View {
             let size = proxy.size
             
             TabView(){
+                
+                
                 AsyncImage(url: movie.posterURL) { image
                     in image
                         .resizable()
@@ -84,6 +123,7 @@ struct MovieView: View {
                 } placeholder: {
                     ProgressView()
                 }
+                
             }
             
             //MARK: Custom Gradient
@@ -94,13 +134,13 @@ struct MovieView: View {
                 color.opacity(0.15),
                 color.opacity(0.5),
                 color.opacity(0.8),
-                .clear,
-                .clear
+                color,
+                color
             ], startPoint: .top, endPoint: .bottom)
             
             //MARK: Blurred overlay
-            Rectangle()
-                .fill(.ultraThinMaterial)
+            //            Rectangle()
+            //                .fill(.ultraThinMaterial)
         }.ignoresSafeArea()
     }
 }

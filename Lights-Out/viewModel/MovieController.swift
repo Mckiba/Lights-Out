@@ -10,16 +10,17 @@ class MovieViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     @Published var movieThings: MovieResults!
+    @Published var casting: CastResult!
     @Published var selectedMovie: Movie?
     let apiKey: String = ProcessInfo.processInfo.environment["TMDB_API_KEY"]!
     let service = APIService()
-
+    
     
     init(){
         getPopularMovies()
     }
     
-    
+    //MARK: - TRENDING MOVIES
     func getPopularMovies(){
         isLoading = true
         guard let url = URL(string: "https://api.themoviedb.org/3/trending/movie/day?api_key=\(apiKey)") else {return}
@@ -37,6 +38,7 @@ class MovieViewModel: ObservableObject {
         }
     }
     
+    //MARK: - MOVIE DETAIL
     func getMovie(movie_id: Int){
         isLoading = true
         
@@ -45,7 +47,7 @@ class MovieViewModel: ObservableObject {
             print(APIError.badURL.description)
             return
         }
-         service.fetch(Movie.self, url: url) { result in
+        service.fetch(Movie.self, url: url) { result in
             DispatchQueue.main.async {
                 switch result{
                 case .failure(let error) :
@@ -53,16 +55,43 @@ class MovieViewModel: ObservableObject {
                     
                 case .success(let movie):
                     self.selectedMovie = movie
-                     self.isLoading = false
+                    self.isLoading = false
                 }
             }
         }
     }
-
+    
+    //MARK: - MOVIE CASTING
+    
+    func getCasting(movie_id: Int){
+        
+        print("MOVIE ID", movie_id)
+        isLoading = true
+        
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movie_id)/credits?api_key=\(apiKey)&language=en-US") else {
+            print(APIError.badURL.description)
+            return
+        }
+        
+        service.fetch(CastResult.self, url: url) { result in
+            
+            DispatchQueue.main.async {
+                switch result{
+                case .failure(let error) :
+                    print("Error \(error)")
+                    
+                case .success(let cast):
+                    self.casting = cast
+                    self.isLoading = false
+                }
+            }
+            
+        }
+        
+        
+    }
     
     
-    
-   
     
 }
 

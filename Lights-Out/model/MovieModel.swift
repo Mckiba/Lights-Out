@@ -1,14 +1,33 @@
 //
-//  Movie.swift
+//  MovieModel.swift
 //  Lights-Out
 //
-//  Created by McKiba Williams on 11/13/22.
+//  Created by McKiba Williams on 12/11/22.
 //
 
 import Foundation
 
 
-// MARK: - Result
+import Foundation
+
+// MARK: - MovieResult
+struct MovieResults: Codable, Hashable {
+    let page: Int
+    let results: [Movie]
+    let totalPages: Int
+    let totalResults: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case page = "page"
+        case results = "results"
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
+    }
+}
+
+
+
+// MARK: - Movie
 struct Movie: Codable, Hashable, Identifiable {
     let adult: Bool
     let backdropPath: String
@@ -18,7 +37,7 @@ struct Movie: Codable, Hashable, Identifiable {
     let originalTitle: String?
     let overview: String
     let posterPath: String
-     let genreIDS: [Int]?
+    let genreIDS: [Int]?
     let popularity: Double
     let releaseDate: String?
     let runtime: Int?
@@ -31,8 +50,8 @@ struct Movie: Codable, Hashable, Identifiable {
     let originCountry: [String]?
     let genres: [Genre]?
     let videos: Videos?
-
-
+    
+    
     
     var backdropURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath )")!
@@ -45,7 +64,7 @@ struct Movie: Codable, Hashable, Identifiable {
     struct Genre: Codable, Hashable {
         let id: Int
         let name: String
-
+        
         enum CodingKeys: String, CodingKey {
             case id = "id"
             case name = "name"
@@ -54,7 +73,7 @@ struct Movie: Codable, Hashable, Identifiable {
     
     struct Videos: Codable, Hashable {
         let results: [Result]
-
+        
         enum CodingKeys: String, CodingKey {
             case results = "results"
         }
@@ -71,7 +90,7 @@ struct Movie: Codable, Hashable, Identifiable {
         let official: Bool
         let publishedAt: String
         let id: String
-
+        
         enum CodingKeys: String, CodingKey {
             case iso639_1 = "iso_639_1"
             case iso3166_1 = "iso_3166_1"
@@ -87,12 +106,14 @@ struct Movie: Codable, Hashable, Identifiable {
     }
     
     static func example() -> Movie {
-
-        return Movie(adult: true, backdropPath: "/duIsyybgrC4S8kcCIVaxNOttV15.jpg" , id: 200, title: "Troll", originalLanguage: "English", originalTitle: "Troll", overview:"Deep inside the mountain of Dovre, something gigantic awakens after being trapped for a thousand years. Destroying everything in its path, the creature is fast approaching the capital of Norway. But how do you stop something you thought only existed in Norwegian folklore?",
-                     posterPath: "/9z4jRr43JdtU66P0iy8h18OyLql.jpg",  genreIDS: [
-                        9648,
-                        18
-                     ], popularity: 34.076, releaseDate: nil, runtime: 125, video: false, voteAverage: 7.128, voteCount: 90, name: "Troll" , originalName: "Troll", firstAirDate: "2022-11-17", originCountry: ["DE"], genres: nil, videos: nil)
+        
+        return Movie(adult: true, backdropPath: "/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg",
+                     id: 200, title: "Black Panther: Wakanda Forever", originalLanguage: "en", originalTitle: "Black Panther: Wakanda Forever", overview: "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.",
+                     posterPath:  "/ps2oKfhY6DL3alynlSqY97gHSsg.jpg",  genreIDS: [
+                        28,
+                        12,
+                        878
+                    ], popularity: 34.076, releaseDate: nil, runtime: 125, video: false, voteAverage: 7.558, voteCount: 1292, name: nil , originalName: nil, firstAirDate: "2022-11-17", originCountry: ["DE"], genres: nil, videos: nil)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -105,7 +126,7 @@ struct Movie: Codable, Hashable, Identifiable {
         case originalTitle = "original_title"
         case overview = "overview"
         case posterPath = "poster_path"
-         case genreIDS = "genre_ids"
+        case genreIDS = "genre_ids"
         case popularity = "popularity"
         case releaseDate = "release_date"
         case runtime = "runtime"
@@ -124,3 +145,6 @@ enum MediaType: String, Codable, Hashable {
     case movie = "movie"
     case tv = "tv"
 }
+
+
+
