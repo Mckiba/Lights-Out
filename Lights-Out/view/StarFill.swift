@@ -17,7 +17,7 @@ struct StarFill: View {
     
     var body: some View {
         
-        let computedRating: Int = ((rating/10)*5)
+      //  let computedRating: Int = ((rating/10)*5)
         
         ZStack(alignment: .leading){
             HStack{
@@ -26,7 +26,7 @@ struct StarFill: View {
                 }
             }.overlay(
                 HStack(alignment: .firstTextBaseline){
-                    ForEach(0 ..< Int(computedRating)) { item in
+                    ForEach(0 ..< Int(3), id:\.self ) { item in
                         Image(systemName: "star.fill").foregroundColor(Color.yellow)
                     }
                 }.opacity(1)

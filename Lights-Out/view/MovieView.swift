@@ -17,7 +17,7 @@ struct MovieView: View {
         // Initialize the movie property with the value of the parameter
         self.movie = movie
         movieViewModel.getMovie(movie_id: movie.id)
-        //movieViewModel.getCasting(movie_id: movie.id)
+        movieViewModel.getCasting(movie_id: movie.id)
     }
     
     func loadJson() -> [Cast]? {
@@ -38,42 +38,39 @@ struct MovieView: View {
     var body: some View {
         ZStack{
             BGView()
-            
-            
             ScrollView(.vertical){
-                
                 VStack {
-                    
                     Text((movie.originalName ?? movie.title)!).font(.largeTitle)
                     HStack{
                         Text((String((movie.releaseDate ?? movie.firstAirDate)!.prefix(4))))
                         Image(systemName: "circle.fill").font(.system(size:8))
                         
-                        ForEach(genres, id:\.self) { genre in
-                            Text(genre+",")
+                        //limits the amount of genres to 3
+                        ForEach((movieViewModel.selectedMovie?.genres?.prefix(3))!, id:\.id) { genre in
+                            Text(genre.name+",")
                                 .font(.body)
                                 .fontWeight(.semibold)
                         }
                         Image(systemName: "circle.fill").font(.system(size:8))
-                        //                        Text("\((movieViewModel.selectedMovie?.runtime!)!/60 )h")
-                        Text("2022") //debug
+                        Text("\((movieViewModel.selectedMovie?.runtime!)!/60 )h")
+                        Text("\((movieViewModel.selectedMovie?.runtime)! % 60)m")
+                        //                            Text("2022") //debug
                         
                     }
                     
+                    //shows the rating in stars 0 - 5
                     StarFill(rating: Int(movie.voteAverage)).padding(.vertical)
                     
                     VStack(alignment: .leading, content: {
-                        
                         Text("Plot Summary").padding().font(.headline)
                         Text(movie.overview).font(.body).padding(.horizontal)
-                        
                         Text("Cast").padding().font(.headline)
                         
                         ScrollView(.horizontal, showsIndicators: false){
                             HStack{
                                 
-                                ForEach(loadJson()!, id:\.id) { cast in
-                                    
+                                ForEach(movieViewModel.casting.cast, id:\.id) { cast in
+                                    //ForEach(loadJson()!, id:\.id) { cast in //debug
                                     VStack {
                                         AsyncImage(url: cast.profileURL) { image
                                             in image
@@ -134,6 +131,12 @@ struct MovieView: View {
                 color.opacity(0.15),
                 color.opacity(0.5),
                 color.opacity(0.8),
+                color,
+                color,
+                color,
+                color,
+                color,
+                color,
                 color,
                 color
             ], startPoint: .top, endPoint: .bottom)
