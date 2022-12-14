@@ -1,14 +1,3 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let castResult = try? newJSONDecoder().decode(CastResult.self, from: jsonData)
-
-//
-// Hashable or Equatable:
-// The compiler will not be able to synthesize the implementation of Hashable or Equatable
-// for types that require the use of JSONAny, nor will the implementation of Hashable be
-// synthesized for types that have collections (such as arrays or dictionaries).
-
 import Foundation
 
 // MARK: - CastResult
@@ -24,12 +13,6 @@ struct CastResult: Codable, Hashable {
     }
 }
 
-//
-// Hashable or Equatable:
-// The compiler will not be able to synthesize the implementation of Hashable or Equatable
-// for types that require the use of JSONAny, nor will the implementation of Hashable be
-// synthesized for types that have collections (such as arrays or dictionaries).
-
 // MARK: - Cast
 struct Cast: Codable, Hashable {
     let adult: Bool
@@ -40,10 +23,10 @@ struct Cast: Codable, Hashable {
     let originalName: String
     let popularity: Double
     let profilePath: String?
-    let castID: Int?
     let character: String?
     let creditID: String
     let order: Int?
+    let castID: Int?
     let department: String?
     let job: String?
     
@@ -52,7 +35,7 @@ struct Cast: Codable, Hashable {
         return URL(string: "https://image.tmdb.org/t/p/w500\(profilePath ?? "")") ?? defaultURL!
     }
     
-    
+
     enum CodingKeys: String, CodingKey {
         case adult = "adult"
         case gender = "gender"
@@ -62,23 +45,27 @@ struct Cast: Codable, Hashable {
         case originalName = "original_name"
         case popularity = "popularity"
         case profilePath = "profile_path"
-        case castID = "cast_id"
         case character = "character"
         case creditID = "credit_id"
         case order = "order"
+        case castID = "cast_id"
         case department = "department"
         case job = "job"
     }
     
-
     
-        
-    
-
-    
-    
-    
-
- 
- 
+    static func loadJson() -> [Cast]? {
+        let url = Bundle.main.url(forResource: "CastData", withExtension: "JSON")
+        do {
+            let data = try Data(contentsOf: url!)
+            let decoder = JSONDecoder()
+            let jsonData = try decoder.decode([Cast].self, from: data)
+            return jsonData
+        } catch {
+            print("error:\(error)")
+        }
+        return nil
+    }
 }
+
+

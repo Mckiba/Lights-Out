@@ -13,8 +13,8 @@ struct Home: View {
     @State var searchOption = ""
     @StateObject var movieViewModel = MovieViewModel()
     @State var pushView = false
- 
-
+    
+    
     //MARK: Animated view properties
     @State var currentIndex: Int = 0
     
@@ -28,7 +28,7 @@ struct Home: View {
                 
                 ZStack{
                     BGView()
-                    VStack(alignment: .center,content: {
+                    VStack(alignment:.leading, content: {
                         
                         HStack(content: {
                             Text("Hi Alvin").fontWeight(.bold)
@@ -47,9 +47,9 @@ struct Home: View {
                             })
                         }).padding(.horizontal)
                         
-                        //MARK: SEARCH
+                        //MARK: - SEARCH
                         HStack{
-                            Text("Search")
+                            Text("Search movies or series")
                             Spacer()
                             Image(systemName: "magnifyingglass")
                             
@@ -57,8 +57,9 @@ struct Home: View {
                             .background(Color.themeGray)
                             .clipShape(RoundedRectangle(cornerRadius: 20)).padding(.horizontal)
                         
+                        Text("WHAT'S TRENDING").fontWeight(.bold).padding(.horizontal)
+                        
                         ScrollView(.horizontal,showsIndicators: false){
-
                             HStack{
                                 ForEach(movieViewModel.movieThings.results, id: \.id){ movie in
                                     NavigationLink(destination: MovieView(movie: movie)){
@@ -69,15 +70,15 @@ struct Home: View {
                                                 .cornerRadius(15)
                                         } placeholder: {
                                             ProgressView()
-
+                                            
                                         }.padding(.horizontal)
                                     }
                                 }
                             }
                         }
-                                                       
-                        //MARK: CATEGORIES
-                        HStack(alignment: .center, spacing:10, content: {
+                        
+                     //MARK: - CATEGORIES
+                        HStack(alignment: .center, spacing:10) {
                             VStack(alignment: .center, content: {
                                 Text("Movies").fontWeight(.bold).font(.subheadline)
                                 Image("movie").resizable().aspectRatio( contentMode: .fit)
@@ -88,18 +89,18 @@ struct Home: View {
                                 Image("tv").resizable().aspectRatio( contentMode: .fit)
                                     .clipShape(Circle())
                             })
-                            
+
                             VStack(alignment: .center, content: {
                                 Text("People").fontWeight(.bold).font(.subheadline)
                                 Image("people").resizable().aspectRatio( contentMode: .fit)
                                     .clipShape(Circle())
                             })
-                        }).frame(height: 140)
-                        
+                        }.frame(height: 140).padding(.horizontal)
+                        Spacer()
                     })
                 }
             }
-        }
+        }.background(Color.black)
     }
     
     @ViewBuilder
@@ -124,8 +125,8 @@ struct Home: View {
                 color.opacity(0.5),
                 color.opacity(0.8),
                 color,
-                color
-            ], startPoint: .top, endPoint: .bottom)
+                color,
+             ], startPoint: .top, endPoint: .bottom)
             
             //MARK: Blurred overlay
             Rectangle()

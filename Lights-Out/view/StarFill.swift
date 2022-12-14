@@ -19,17 +19,17 @@ struct StarFill: View {
         
       //  let computedRating: Int = ((rating/10)*5)
         
-        ZStack(alignment: .leading){
+        ZStack{
             HStack{
-                ForEach(0 ..< 5) { item in
+                ForEach(0 ..< 5, id:\.self) { item in
                     Image(systemName: "star")
                 }
             }.overlay(
                 HStack(alignment: .firstTextBaseline){
-                    ForEach(0 ..< Int(3), id:\.self ) { item in
-                        Image(systemName: "star.fill").foregroundColor(Color.yellow)
+                    ForEach(0 ..< 3, id:\.self ) { item in
+                        Image(systemName: "star.fill").foregroundColor(Color.orange)
                     }
-                }.opacity(1)
+                }
             )
         }
     }

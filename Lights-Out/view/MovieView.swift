@@ -12,65 +12,77 @@ struct MovieView: View {
     @ObservedObject var movieViewModel = MovieViewModel()
     @Environment(\.colorScheme ) var scheme
     
-    let genres: [String] = ["Action", "Romance", "Love"]
     init(movie: Movie) {
-        // Initialize the movie property with the value of the parameter
-        self.movie = movie
+         self.movie = movie
         movieViewModel.getMovie(movie_id: movie.id)
-        movieViewModel.getCasting(movie_id: movie.id)
-    }
-    
-    func loadJson() -> [Cast]? {
-        let url = Bundle.main.url(forResource: "CastData", withExtension: "JSON")
-        do {
-            let data = try Data(contentsOf: url!)
-            let decoder = JSONDecoder()
-            let jsonData = try decoder.decode([Cast].self, from: data)
-            return jsonData
-        } catch {
-            print("error:\(error)")
+        movieViewModel.getMovieCasting(movie_id: movie.id)
+        switch movie.mediaType {
+        case "tv":
+            movieViewModel.getTVCasting(tv_id: movie.id)
+        default:
+            movieViewModel.getMovieCasting(movie_id: movie.id)
         }
-        return nil
     }
-    
-    
     
     var body: some View {
         ZStack{
+            
             BGView()
+            
+            Image(systemName: "play.circle.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(minWidth: 20, idealWidth: 40, maxWidth: 40, minHeight: 20, idealHeight: 40, maxHeight: 40, alignment: .top)
+                .foregroundColor(Color.themeGray)
+                .offset(y: -235).opacity(0.8)
+            
             ScrollView(.vertical){
                 VStack {
                     Text((movie.originalName ?? movie.title)!).font(.largeTitle)
+                        .font(.custom("Montserrat-Bold",size:12))
+                        .fontWeight(.bold)
+                    
                     HStack{
                         Text((String((movie.releaseDate ?? movie.firstAirDate)!.prefix(4))))
                         Image(systemName: "circle.fill").font(.system(size:8))
                         
-                        //limits the amount of genres to 3
-                        ForEach((movieViewModel.selectedMovie?.genres?.prefix(3))!, id:\.id) { genre in
+                        //ForEach((movieViewModel.selectedMovie?.genres?.prefix(3))!, id:\.id) { genre in
+                        ForEach(movie.testGenres, id:\.id) { genre in //debug
                             Text(genre.name+",")
                                 .font(.body)
                                 .fontWeight(.semibold)
                         }
                         Image(systemName: "circle.fill").font(.system(size:8))
-                        Text("\((movieViewModel.selectedMovie?.runtime!)!/60 )h")
-                        Text("\((movieViewModel.selectedMovie?.runtime)! % 60)m")
-                        //                            Text("2022") //debug
-                        
-                    }
+                        //Text("\((movieViewModel.selectedMovie?.runtime!)!/60 )h")
+                        //Text("\((movieViewModel.selectedMovie?.runtime)! % 60)m")
+                        Text("1h") //debug
+                        Text("42m")//debug
+                    }.foregroundColor(Color.themeGray).padding(.top,1)
                     
                     //shows the rating in stars 0 - 5
-                    StarFill(rating: Int(movie.voteAverage)).padding(.vertical)
+                    StarFill(rating: Int(movie.voteAverage)).padding(.top,1)
                     
+                    //MARK: - MOVIE OVERVIEW
                     VStack(alignment: .leading, content: {
-                        Text("Plot Summary").padding().font(.headline)
-                        Text(movie.overview).font(.body).padding(.horizontal)
-                        Text("Cast").padding().font(.headline)
+                        if #available(iOS 16.0, *) {
+                            Text("Plot Summary").padding().font(.headline)                        .font(.custom("Montserrat-Regular",size:12))
+                                .fontWeight(.bold)
+                        } else {
+                            Text("Plot Summary").padding().font(.headline)                        .font(.custom("Montserrat-Regular",size:12))
+                        }
+                        Text(movie.overview).font(.body).padding(.horizontal).font(.body)
+                        if #available(iOS 16.0, *) {
+                            Text("Cast").padding().font(.headline).fontWeight(.bold)
+                                .font(.custom("Montserrat-Regular",size:12))
+                        } else {
+                            Text("Cast").padding().font(.headline)
+                        }
                         
+                        //MARK: - CASTING
                         ScrollView(.horizontal, showsIndicators: false){
                             HStack{
-                                
-                                ForEach(movieViewModel.casting.cast, id:\.id) { cast in
-                                    //ForEach(loadJson()!, id:\.id) { cast in //debug
+                                //ForEach(movieViewModel.casting.cast, id:\.id) { cast in
+                                ForEach(Cast.loadJson()!, id:\.id) { cast in //debug
                                     VStack {
                                         AsyncImage(url: cast.profileURL) { image
                                             in image
@@ -83,22 +95,19 @@ struct MovieView: View {
                                             ProgressView()
                                         }
                                         Text(cast.name).font(.system(size: 13))
-                                        Text(cast.character ?? cast.name).font(.subheadline)
-                                        
-                                        
-                                    }
+                                            .fixedSize(horizontal: false, vertical: true)
+                                        Text(cast.character ?? cast.name).font(.subheadline).lineLimit(3)
+                                    }.frame(width: 120)
                                 }.padding(.trailing)
-                                
-                                
                             }
                         }.padding(.horizontal)
+                        //MARK: - SIMMILAR MOVIES
+                        Text("Simmilar movies").padding().font(.headline)
                         
                     })
-                    
-                    
                 }
             }
-            .offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 200.0)
+            .offset(x: 0.0, y: 300.0)
         }
     }
     
@@ -107,10 +116,7 @@ struct MovieView: View {
     func BGView()->some View{
         GeometryReader{proxy in
             let size = proxy.size
-            
             TabView(){
-                
-                
                 AsyncImage(url: movie.posterURL) { image
                     in image
                         .resizable()
@@ -120,9 +126,7 @@ struct MovieView: View {
                 } placeholder: {
                     ProgressView()
                 }
-                
             }
-            
             //MARK: Custom Gradient
             let color : Color = (scheme == .dark ? .black : .white)
             LinearGradient(colors:[
@@ -131,19 +135,9 @@ struct MovieView: View {
                 color.opacity(0.15),
                 color.opacity(0.5),
                 color.opacity(0.8),
-                color,
-                color,
-                color,
-                color,
-                color,
-                color,
-                color,
+                color,color,color,
                 color
             ], startPoint: .top, endPoint: .bottom)
-            
-            //MARK: Blurred overlay
-            //            Rectangle()
-            //                .fill(.ultraThinMaterial)
         }.ignoresSafeArea()
     }
 }

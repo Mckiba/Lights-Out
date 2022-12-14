@@ -23,19 +23,19 @@ class MovieViewModel: ObservableObject {
     //MARK: - TRENDING MOVIES
     func getPopularMovies(){
         isLoading = true
-        guard let url = URL(string: "https://api.themoviedb.org/3/trending/movie/day?api_key=\(apiKey)") else {return}
-        service.fetch(MovieResults.self, url: url) { result in
+        guard let url = URL(string: "https://api.themoviedb.org/3/trending/all/day?api_key=\(apiKey)") else {return}
+        service.fetchPopularMovies(url: url, onCompletion: { result in
             DispatchQueue.main.async {
                 switch result{
                 case .failure(let error) :
-                    print(error.localizedDescription)
+                    print("Error \(error)")
                     
                 case .success(let movie):
                     self.movieThings = movie
                     self.isLoading = false
                 }
             }
-        }
+        })
     }
     
     //MARK: - MOVIE DETAIL
@@ -63,16 +63,13 @@ class MovieViewModel: ObservableObject {
     
     //MARK: - MOVIE CASTING
     
-    func getCasting(movie_id: Int){
-        
-        print("MOVIE ID", movie_id)
-        isLoading = true
+    func getMovieCasting(movie_id: Int){
+         isLoading = true
         
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movie_id)/credits?api_key=\(apiKey)&language=en-US") else {
             print(APIError.badURL.description)
             return
         }
-        
         service.fetch(CastResult.self, url: url) { result in
             
             DispatchQueue.main.async {
@@ -85,13 +82,32 @@ class MovieViewModel: ObservableObject {
                     self.isLoading = false
                 }
             }
-            
-        }
-        
-        
+         }
     }
     
     
+    //MARK: - GET TV CASTING
     
+    func getTVCasting(tv_id: Int){
+         isLoading = true
+        
+        guard let url = URL(string: "https://api.themoviedb.org/3/tv/\(tv_id)/credits?api_key=\(apiKey)&language=en-US") else {
+            print(APIError.badURL.description)
+            return
+        }
+        service.fetch(CastResult.self, url: url) { result in
+            
+            DispatchQueue.main.async {
+                switch result{
+                case .failure(let error) :
+                    print("Error \(error)")
+                    
+                case .success(let cast):
+                    self.casting = cast
+                    self.isLoading = false
+                }
+            }
+         }
+    }
 }
 
