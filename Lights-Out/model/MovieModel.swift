@@ -58,15 +58,8 @@ struct Movie: Codable, Hashable, Identifiable {
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath )")!
     }
     
-    let testGenres: [Genre] = [Genre(id: 100, name: "Action"),Genre(id: 101, name: "Adventure"),Genre(id: 102, name: "Sci-Fi")]
-    
-    static func example() -> Movie {
+    let testGenres: [Genre] = [Genre(id: 100, name: "Action"),Genre(id: 101, name: "Adventure")]
         
-        return Movie(adult: true, backdropPath: "/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg",
-                     id: 200, title: "Black Panther: Wakanda Forever", originalLanguage: "en", originalTitle: "Black Panther: Wakanda Forever", overview: "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.",
-                     posterPath:  "/ps2oKfhY6DL3alynlSqY97gHSsg.jpg", mediaType: "movie",  genreIDS: [28,12,878], popularity: 34.076, releaseDate: nil, runtime: 125, video: false, voteAverage: 7.558, voteCount: 1292, name: nil , originalName: nil, firstAirDate: "2022-11-17", originCountry: ["DE"], genres: nil, videos: nil)
-    }
-    
     enum CodingKeys: String, CodingKey {
         case adult = "adult"
         case backdropPath = "backdrop_path"
@@ -90,6 +83,26 @@ struct Movie: Codable, Hashable, Identifiable {
         case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
         case videos = "videos"
+    }
+    
+    static func example() -> Movie {
+        
+        return Movie(adult: true, backdropPath: "/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg",
+                     id: 505642, title: "Black Panther: Wakanda Forever", originalLanguage: "en", originalTitle: "Black Panther: Wakanda Forever", overview: "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.",
+                     posterPath:  "/ps2oKfhY6DL3alynlSqY97gHSsg.jpg", mediaType: "movie",  genreIDS: [28,12,878], popularity: 34.076, releaseDate: nil, runtime: 125, video: false, voteAverage: 7.558, voteCount: 1292, name: nil , originalName: nil, firstAirDate: "2022-11-17", originCountry: ["DE"], genres: nil, videos: nil)
+    }
+    
+    static func loadJson() -> [Movie]? {
+        let url = Bundle.main.url(forResource: "MovieResult", withExtension: "JSON")
+        do {
+            let data = try Data(contentsOf: url!)
+            let decoder = JSONDecoder()
+            let jsonData = try decoder.decode([Movie].self, from: data)
+            return jsonData
+        } catch {
+            print("error:\(error)")
+        }
+        return nil
     }
 }
 

@@ -13,9 +13,11 @@ struct MovieView: View {
     @Environment(\.colorScheme ) var scheme
     
     init(movie: Movie) {
-         self.movie = movie
+        self.movie = movie
         movieViewModel.getMovie(movie_id: movie.id)
         movieViewModel.getMovieCasting(movie_id: movie.id)
+        movieViewModel.getSimilarMovies(movie_id: movie.id)
+        
         switch movie.mediaType {
         case "tv":
             movieViewModel.getTVCasting(tv_id: movie.id)
@@ -25,18 +27,9 @@ struct MovieView: View {
     }
     
     var body: some View {
-        ZStack{
-            
+        ZStack(alignment: .center){
             BGView()
-            
-            Image(systemName: "play.circle.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(minWidth: 20, idealWidth: 40, maxWidth: 40, minHeight: 20, idealHeight: 40, maxHeight: 40, alignment: .top)
-                .foregroundColor(Color.themeGray)
-                .offset(y: -235).opacity(0.8)
-            
-            ScrollView(.vertical){
+            ScrollView(.vertical, showsIndicators: false){
                 VStack {
                     Text((movie.originalName ?? movie.title)!).font(.largeTitle)
                         .font(.custom("Montserrat-Bold",size:12))
@@ -46,49 +39,50 @@ struct MovieView: View {
                         Text((String((movie.releaseDate ?? movie.firstAirDate)!.prefix(4))))
                         Image(systemName: "circle.fill").font(.system(size:8))
                         
-                        //ForEach((movieViewModel.selectedMovie?.genres?.prefix(3))!, id:\.id) { genre in
-                        ForEach(movie.testGenres, id:\.id) { genre in //debug
+                        ForEach((movieViewModel.selectedMovie?.genres?.prefix(2))!, id:\.id) { genre in
                             Text(genre.name+",")
                                 .font(.body)
                                 .fontWeight(.semibold)
                         }
                         Image(systemName: "circle.fill").font(.system(size:8))
-                        //Text("\((movieViewModel.selectedMovie?.runtime!)!/60 )h")
-                        //Text("\((movieViewModel.selectedMovie?.runtime)! % 60)m")
-                        Text("1h") //debug
-                        Text("42m")//debug
+                        Text("\((movieViewModel.selectedMovie?.runtime!)!/60 )h")
+                        Text("\((movieViewModel.selectedMovie?.runtime)! % 60)m")
+                        
                     }.foregroundColor(Color.themeGray).padding(.top,1)
                     
-                    //shows the rating in stars 0 - 5
-                    StarFill(rating: Int(movie.voteAverage)).padding(.top,1)
+                    HStack {
+                        StarFill(rating: Int(movie.voteAverage)).padding(.vertical,1)
+                        Text("\(movie.voteAverage , specifier: "%.1f") | \(movie.voteCount)")
+                    }.foregroundColor(.yellow)
                     
-                    //MARK: - MOVIE OVERVIEW
+                    //MARK: -   OVERVIEW
                     VStack(alignment: .leading, content: {
                         if #available(iOS 16.0, *) {
-                            Text("Plot Summary").padding().font(.headline)                        .font(.custom("Montserrat-Regular",size:12))
+                            Text("Plot Summary").font(.headline)
+                                .font(.custom("Montserrat-Regular",size:12))
                                 .fontWeight(.bold)
                         } else {
-                            Text("Plot Summary").padding().font(.headline)                        .font(.custom("Montserrat-Regular",size:12))
-                        }
-                        Text(movie.overview).font(.body).padding(.horizontal).font(.body)
-                        if #available(iOS 16.0, *) {
-                            Text("Cast").padding().font(.headline).fontWeight(.bold)
+                            Text("Plot Summary").padding().font(.headline)
                                 .font(.custom("Montserrat-Regular",size:12))
-                        } else {
-                            Text("Cast").padding().font(.headline)
                         }
+                        Text(movie.overview).font(.body).padding(.vertical,5).font(.body)
                         
                         //MARK: - CASTING
+                        if #available(iOS 16.0, *) {
+                            Text("Cast").font(.headline).fontWeight(.bold)
+                                .font(.custom("Montserrat-Regular",size:12))
+                        } else {
+                            Text("Cast").font(.headline)
+                        }
                         ScrollView(.horizontal, showsIndicators: false){
                             HStack{
-                                //ForEach(movieViewModel.casting.cast, id:\.id) { cast in
-                                ForEach(Cast.loadJson()!, id:\.id) { cast in //debug
-                                    VStack {
+                                ForEach(movieViewModel.casting.cast, id:\.id) { cast in
+                                    VStack(alignment: .leading) {
                                         AsyncImage(url: cast.profileURL) { image
                                             in image
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
-                                                .frame(width: 80, height: 80)
+                                                .frame(width: 60, height: 60)
                                                 .clipShape(Circle())
                                             
                                         } placeholder: {
@@ -97,20 +91,40 @@ struct MovieView: View {
                                         Text(cast.name).font(.system(size: 13))
                                             .fixedSize(horizontal: false, vertical: true)
                                         Text(cast.character ?? cast.name).font(.subheadline).lineLimit(3)
-                                    }.frame(width: 120)
+                                    }.frame(width: 100,alignment: .leading)
                                 }.padding(.trailing)
                             }
                         }.padding(.horizontal)
-                        //MARK: - SIMMILAR MOVIES
-                        Text("Simmilar movies").padding().font(.headline)
                         
+                        //MARK: - SIMMILAR MOVIES
+                        Text("Simmilar movies").font(.headline)
+                        ScrollView(.horizontal,showsIndicators: false){
+                            HStack(spacing:5){
+                                ForEach(movieViewModel.similarMovies.results, id: \.id){ movie in
+                                    NavigationLink(destination: MovieView(movie: movie)){
+                                        VStack{
+                                            AsyncImage(url: movie.posterURL) { image
+                                                in image
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame( height: 200)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            } placeholder: {
+                                                ProgressView()
+                                                
+                                            }.padding(.horizontal)
+                                            Text((movie.originalName ?? movie.title)!).font(.system(size: 13))
+                                                .fixedSize(horizontal: false, vertical: true).lineLimit(3).foregroundColor(.white)
+                                        }.frame(alignment: .center)
+                                    }
+                                }
+                            }
+                        }
                     })
                 }
-            }
-            .offset(x: 0.0, y: 300.0)
+            }.offset(y:200).padding(.bottom,200).padding(.horizontal)
         }
     }
-    
     
     @ViewBuilder
     func BGView()->some View{
@@ -136,7 +150,7 @@ struct MovieView: View {
                 color.opacity(0.5),
                 color.opacity(0.8),
                 color,color,color,
-                color
+                color,color
             ], startPoint: .top, endPoint: .bottom)
         }.ignoresSafeArea()
     }
