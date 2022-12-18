@@ -10,6 +10,7 @@ class MovieViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     @Published var movieThings: MovieResults!
+    @Published var similarMovies: MovieResults!
     @Published var casting: CastResult!
     @Published var selectedMovie: Movie?
     let apiKey: String = ProcessInfo.processInfo.environment["TMDB_API_KEY"]!
@@ -87,7 +88,6 @@ class MovieViewModel: ObservableObject {
     
     
     //MARK: - GET TV CASTING
-    
     func getTVCasting(tv_id: Int){
          isLoading = true
         
@@ -108,6 +108,29 @@ class MovieViewModel: ObservableObject {
                 }
             }
          }
+    }
+    
+    //MARK: - GET SIMILAR MOVIES
+    func getSimilarMovies(movie_id: Int){
+        isLoading = true
+        
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movie_id)/similar?api_key=\(apiKey)&language=en-US&page=1")
+        else {
+            print(APIError.badURL.description)
+            return
+        }
+        service.fetch(MovieResults.self, url: url) { result in
+            DispatchQueue.main.async {
+                switch result{
+                case .failure(let error) :
+                    print("Error: \(error)")
+                    
+                case .success(let movie):
+                    self.similarMovies = movie
+                    self.isLoading = false
+                }
+            }
+        }
     }
 }
 
