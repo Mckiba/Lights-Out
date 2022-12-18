@@ -11,32 +11,45 @@ struct StarFill: View {
     
     @State var rating: Int
     
+    var computedRating: Double
+    var filledStarCount: Double
+    var isHalfStar: Int
+    var emptyStarCount: Int
+    
     init(rating: Int) {
         self.rating = rating
+        
+        //Rating received was on a scale of 1 - 10, Converted it to a scale of 1 - 5
+        self.computedRating = (Double(rating) / 10) * 5
+        
+        //Calculate how many filled stars I'll need
+        self.filledStarCount = floor(computedRating)
+        
+        //if there is any remainder from computed rating I'll neeed an half star
+        self.isHalfStar = computedRating.truncatingRemainder(dividingBy: 1.0) == 0.5 ? 1 : 0
+        
+        //Calculates number of empty stars to render
+        self.emptyStarCount = 5 - (Int(self.filledStarCount) + self.isHalfStar)
     }
     
     var body: some View {
-        
-      //  let computedRating: Int = ((rating/10)*5)
-        
-        ZStack{
-            HStack{
-                ForEach(0 ..< 5, id:\.self) { item in
-                    Image(systemName: "star")
-                }
-            }.overlay(
-                HStack(alignment: .firstTextBaseline){
-                    ForEach(0 ..< 3, id:\.self ) { item in
-                        Image(systemName: "star.fill").foregroundColor(Color.orange)
-                    }
-                }
-            )
+        HStack {
+            ForEach(0 ..< Int(filledStarCount), id: \.self) { item in
+                Image(systemName: "star.fill").foregroundColor(.yellow)
+            }
+            ForEach(0 ..< Int(isHalfStar), id: \.self) { item in
+                Image(systemName: "star.leadinghalf.filled").foregroundColor(.yellow)
+            }
+            ForEach(0 ..< Int(emptyStarCount), id:\.self) { item in
+                Image(systemName: "star").foregroundColor(.yellow)
+            }
         }
     }
 }
 
+
 struct StarFill_Previews: PreviewProvider {
     static var previews: some View {
-        StarFill(rating: 7).preferredColorScheme(.dark)
+        StarFill(rating: 9).preferredColorScheme(.dark)
     }
 }
