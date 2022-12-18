@@ -35,13 +35,13 @@ struct StarFill: View {
     var body: some View {
         HStack {
             ForEach(0 ..< Int(filledStarCount), id: \.self) { item in
-                Image(systemName: "star.fill").foregroundColor(.yellow)
+                Image(systemName: "star.fill")
             }
             ForEach(0 ..< Int(isHalfStar), id: \.self) { item in
-                Image(systemName: "star.leadinghalf.filled").foregroundColor(.yellow)
+                Image(systemName: "star.leadinghalf.filled")
             }
             ForEach(0 ..< Int(emptyStarCount), id:\.self) { item in
-                Image(systemName: "star").foregroundColor(.yellow)
+                Image(systemName: "star")
             }
         }
     }
