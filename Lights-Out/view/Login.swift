@@ -60,7 +60,7 @@ struct Login: View {
                                     print("Error with firebase")
                                     return
                                 }
-                                loginData.authenticate(credential: credential)
+                                loginData.appleAuthenticate(credential: credential)
                                 
                             case .failure(let error):
                                 print(error.localizedDescription)
@@ -84,7 +84,7 @@ struct Login: View {
                     .foregroundColor(Color.black)
                     .overlay{
                         GoogleSignInButton{
-                            loginData.handleLogin()
+                            loginData.handleGoogleLogin()
                         }.frame(width: 120)
                             .blendMode(.overlay)
                     }
