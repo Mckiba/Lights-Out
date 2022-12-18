@@ -9,11 +9,18 @@ import SwiftUI
 import Firebase
 
 struct Home: View {
-    @AppStorage("log_status") var log_Status = true
-    @State var searchOption = ""
-    @StateObject var movieViewModel = MovieViewModel()
-    @State var pushView = false
     
+    @State var searchOption = ""
+    @State var pushView = false
+    @State var isPresenting: Bool = false
+    @StateObject var movieViewModel = MovieViewModel()
+    @StateObject var loginController = LoginViewModel()
+    @StateObject var loginInfo = LoginViewModel()
+    @AppStorage("log_status") var log_Status = true
+    @AppStorage("user_name") var user_name = "User"
+    @AppStorage("profile_photo") var profile_photo = ""
+
+
     
     //MARK: Animated view properties
     @State var currentIndex: Int = 0
@@ -31,20 +38,32 @@ struct Home: View {
                     VStack(alignment:.leading, content: {
                         
                         HStack(content: {
-                            Text("Hi Alvin").fontWeight(.bold)
+                            Text("Hi \(user_name)").fontWeight(.bold)
                                 .font(.largeTitle)
                             Spacer()
                             Button(action: {
-                                DispatchQueue.global(qos: .background).async {
-                                    try? Auth.auth().signOut()
-                                }
-                                withAnimation(.easeInOut){
-                                    log_Status = false
-                                }
+                                isPresenting = true
                             }, label: {
-                                Image(systemName: "person.crop.circle.fill").frame(height: 30)
-                                    .font(.system(size: 35))
-                            })
+                                AsyncImage(url: URL(string: profile_photo)) { image in
+                                    image
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width:30, height: 30)
+                                        .clipShape(Circle())
+                                }placeholder: {
+                                    Image(systemName: "person.crop.circle.fill").frame(height: 30).font(.system(size: 35))
+                                }
+                            }).alert(isPresented: $isPresenting){
+                                
+                                Alert(
+                                    title:Text("Sign Out"),
+                                    message: Text("Are you sure you want to sign Out?"),
+                                    primaryButton: .default(
+                                        Text("Sign Out"),
+                                        action: {loginController.handleSignOut()}
+                                    ),
+                                    secondaryButton: .destructive(Text("Cancel"),action: {isPresenting = false})
+                                )
+                            }
                         }).padding(.horizontal)
                         
                         //MARK: - SEARCH
@@ -59,6 +78,7 @@ struct Home: View {
                         
                         Text("WHAT'S TRENDING").fontWeight(.bold).padding(.horizontal)
                         
+                        //MARK: - MOVIES SHOWCASE
                         ScrollView(.horizontal,showsIndicators: false){
                             HStack{
                                 ForEach(movieViewModel.movieThings.results, id: \.id){ movie in
@@ -119,7 +139,7 @@ struct Home: View {
             //MARK: Custom Gradient
             let color : Color = (scheme == .dark ? .black : .white)
             LinearGradient(colors:[
-                .black,
+                //.black,
                 .clear,
                 color.opacity(0.15),
                 color.opacity(0.5),
@@ -138,6 +158,6 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().preferredColorScheme(.dark)
+        Home().preferredColorScheme(.dark)
     }
 }
