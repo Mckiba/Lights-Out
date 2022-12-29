@@ -81,7 +81,7 @@ struct Home: View {
                         //MARK: - MOVIES SHOWCASE
                         ScrollView(.horizontal,showsIndicators: false){
                             HStack{
-                                ForEach(movieViewModel.movieThings.results, id: \.id){ movie in
+                                ForEach(movieViewModel.trendingMovies.results, id: \.id){ movie in
                                     NavigationLink(destination: MovieView(movie: movie)){
                                         AsyncImage(url: movie.posterURL) { image
                                             in image
@@ -95,27 +95,10 @@ struct Home: View {
                                     }
                                 }
                             }
-                        }
+                        }.padding(.bottom)
                         
                      //MARK: - CATEGORIES
-                        HStack(alignment: .center, spacing:10) {
-                            VStack(alignment: .center, content: {
-                                Text("Movies").fontWeight(.bold).font(.subheadline)
-                                Image("movie").resizable().aspectRatio( contentMode: .fit)
-                                    .clipShape(Circle())
-                            })
-                            VStack(alignment: .center, content: {
-                                Text("TV Shows").fontWeight(.bold).font(.subheadline)
-                                Image("tv").resizable().aspectRatio( contentMode: .fit)
-                                    .clipShape(Circle())
-                            })
-
-                            VStack(alignment: .center, content: {
-                                Text("People").fontWeight(.bold).font(.subheadline)
-                                Image("people").resizable().aspectRatio( contentMode: .fit)
-                                    .clipShape(Circle())
-                            })
-                        }.frame(height: 140).padding(.horizontal)
+                        Categories()
                         Spacer()
                     })
                 }
