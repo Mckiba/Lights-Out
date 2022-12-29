@@ -52,7 +52,7 @@ struct MovieView: View {
                     
                     HStack {
                         StarFill(rating: Int(movie.voteAverage)).padding(.vertical,1)
-                        Text("\(movie.voteAverage , specifier: "%.1f") | \(movie.voteCount)")
+                        Text("\(movie.voteAverage , specifier: "%.1f")")
                     }.foregroundColor(.yellow)
                     
                     //MARK: -   OVERVIEW
@@ -156,8 +156,3 @@ struct MovieView: View {
     }
 }
 
-struct MovieView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieView(movie: Movie.example()).preferredColorScheme(.dark)
-    }
-}

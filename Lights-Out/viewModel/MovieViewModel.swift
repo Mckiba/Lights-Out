@@ -9,7 +9,7 @@ import Foundation
 class MovieViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
-    @Published var movieThings: MovieResults!
+    @Published var trendingMovies: MovieResults!
     @Published var similarMovies: MovieResults!
     @Published var casting: CastResult!
     @Published var selectedMovie: Movie?
@@ -32,7 +32,7 @@ class MovieViewModel: ObservableObject {
                     print("Error \(error)")
                     
                 case .success(let movie):
-                    self.movieThings = movie
+                    self.trendingMovies = movie
                     self.isLoading = false
                 }
             }
@@ -86,6 +86,29 @@ class MovieViewModel: ObservableObject {
          }
     }
     
+    //MARK: - GET SIMILAR MOVIES
+    func getSimilarMovies(movie_id: Int){
+        isLoading = true
+        
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movie_id)/similar?api_key=\(apiKey)&language=en-US&page=1")
+        else {
+            print(APIError.badURL.description)
+            return
+        }
+        service.fetch(MovieResults.self, url: url) { result in
+            DispatchQueue.main.async {
+                switch result{
+                case .failure(let error) :
+                    print("Error: \(error)")
+                    
+                case .success(let movie):
+                    self.similarMovies = movie
+                    self.isLoading = false
+                }
+            }
+        }
+    }
+    
     
     //MARK: - GET TV CASTING
     func getTVCasting(tv_id: Int){
@@ -110,27 +133,27 @@ class MovieViewModel: ObservableObject {
          }
     }
     
-    //MARK: - GET SIMILAR MOVIES
-    func getSimilarMovies(movie_id: Int){
-        isLoading = true
+    //MARK: - GET TV Details
+    func getTvDetails(tv_id: Int){
+         isLoading = true
         
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movie_id)/similar?api_key=\(apiKey)&language=en-US&page=1")
-        else {
+        guard let url = URL(string: "https://api.themoviedb.org/3/tv/\(tv_id)?api_key=\(apiKey)&language=en-US&append_to_response=videos") else {
             print(APIError.badURL.description)
             return
         }
-        service.fetch(MovieResults.self, url: url) { result in
+        service.fetch(Movie.self, url: url) { result in
+            
             DispatchQueue.main.async {
                 switch result{
                 case .failure(let error) :
-                    print("Error: \(error)")
+                    print("Error \(error)")
                     
-                case .success(let movie):
-                    self.similarMovies = movie
+                case .success(let tv):
+                    self.selectedMovie = tv
                     self.isLoading = false
                 }
             }
-        }
+         }
     }
 }
 
